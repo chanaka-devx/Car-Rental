@@ -1,0 +1,10 @@
+.home{
+    height: 110vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
