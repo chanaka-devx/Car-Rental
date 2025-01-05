@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 shadow-md fixed top-0 left-0 w-full z-50 rounded-b-3xl">
+    <nav className="bg-gray-800 shadow-md fixed top-0 left-0 w-full z-50 rounded-b-xl">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -19,24 +19,24 @@ const Navbar = () => {
         </div>
 
         
-        <ul className={`hidden md:flex space-x-8 text-gray-500 font-semibold`}>
+        <ul className={`hidden md:flex space-x-8 text-gray-400 font-semibold`}>
           <li>
-            <a href="#list-your-vehicle" className="hover:text-blue-900">
+            <a href="#list-your-vehicle" className="hover:text-white">
               List Your Vehicle
             </a>
           </li>
           <li>
-            <Link to={'signup'} className="hover:text-blue-500">
+            <Link to={'signup'} className="hover:text-white">
               Sign Up
             </Link>
           </li>
           <li>
-            <a href="#blog" className="hover:text-blue-500">
+            <a href="#blog" className="hover:text-white">
               Blog
             </a>
           </li>
           <li>
-            <a href="#faq" className="hover:text-blue-500">
+            <a href="#faq" className="hover:text-white">
               FAQ
             </a>
           </li>
