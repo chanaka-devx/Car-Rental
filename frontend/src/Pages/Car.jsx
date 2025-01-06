@@ -53,11 +53,11 @@ function Car() {
                   <tr key={i}>
                     <td>{data.Brand}</td>
                     <td>{data.Model}</td>
-                    <td>{data.Vnumber}</td>
+                    <td>{data.Number}</td>
                     <td>{data.Color}</td>
-                    <td>{data.Yom}</td>
+                    <td>{data.YOM}</td>
                     <td>
-                      <Link to={`update/${data.ID}`} className='bg-blue-500 rounded-md p-2 m-2 hover:bg-blue-600'>Update</Link>
+                      <Link to={`update/${data.id}`} className='bg-blue-500 rounded-md p-2 m-2 hover:bg-blue-600'>Update</Link>
                       <button className='bg-red-500 rounded-md p-2 m-2 hover:bg-red-600'
                               onClick={ () => handleDelete(data.ID)}>
                           Delete

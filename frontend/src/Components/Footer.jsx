@@ -39,7 +39,7 @@ const Footer = () =>{
 
         <div className="mt-4 text-sm">
             <p>
-            copyright © 2024 <a href="https://RentRide.com" class="text-white hover:underline">RentRide  </a> 
+            copyright © 2025 <a href="https://RentRide.com" class="text-white hover:underline">RentRide  </a> 
             | developing by <a href="https://lankanrentals.com" class="text-white hover:underline">  Chanaka Malawige</a>
             </p>
         </div>
