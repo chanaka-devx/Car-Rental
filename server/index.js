@@ -70,12 +70,16 @@ app.delete('/car/:id', (req, res) => {
     const id = req.params.id;
 
     db.query(sql, [id], (err, data) => {
-        if (err) return res.json("Error");
-        return res.json(data);
+        if (err) {
+            console.log(err);
+            return res.json("Error");
+          }
+          return res.json(data);
     })
 });
 
 
-app.listen(process.env.PORT, () => {
-    console.log("Server is running on port 8081");
+const PORT = process.env.PORT || 3003;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

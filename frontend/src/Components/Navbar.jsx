@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import RentRide from '../../src/Images/logo3.png';
-import {Link} from 'react-router-dom';
-import SignUp from '../Pages/SignUp';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,57 +11,51 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 shadow-md fixed top-0 left-0 w-full z-50 rounded-b-xl">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center">
-          <img src={RentRide} alt="Logo" className="h-12 w-13" />
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="logo">
+          <img src={RentRide} alt="Logo" className="logo-image" />
         </div>
 
-        
-        <ul className={`hidden md:flex space-x-8 text-gray-400 font-semibold`}>
+        <ul className="menu">
           <li>
-            <a href="#list-your-vehicle" className="hover:text-white">
+            <a href="#list-your-vehicle" className="menu-item">
               List Your Vehicle
             </a>
           </li>
           <li>
-            <Link to={'signup'} className="hover:text-white">
+            <Link to="signup" className="menu-item">
               Sign Up
             </Link>
           </li>
           <li>
-            <a href="#blog" className="hover:text-white">
+            <a href="#blog" className="menu-item">
               Blog
             </a>
           </li>
           <li>
-            <a href="#faq" className="hover:text-white">
+            <a href="#faq" className="menu-item">
               FAQ
             </a>
           </li>
         </ul>
 
-        
-        <div className="hidden md:block">
-          <Link to={'Login'} className="bg-gradient-to-r from-blue-400 to-green-400 text-white font-semibold px-8 py-2 rounded-full hover:from-blue-500 hover:to-green-500 text-lg">
+        <div className="login-btn-container">
+          <Link to="Login" className="login-btn">
             Login
           </Link>
         </div>
 
-        
-        <div className="md:hidden">
-          <button
-            onClick={toggleMobileMenu}
-            className="text-white focus:outline-none"
-          >
+        {/* Mobile Menu */}
+        <div className="mobile-menu-toggle">
+          <button onClick={toggleMobileMenu} className="toggle-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="toggle-icon"
             >
               <path
                 strokeLinecap="round"
@@ -73,35 +67,32 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className={`${
-          isMobileMenuOpen ? 'block' : 'hidden'
-        } md:hidden bg-white shadow-md absolute top-16 left-0 w-full px-4 py-6`}
+        className={`mobile-menu ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}
       >
-        <ul className="space-y-4 text-gray-900 font-semibold">
+        <ul className="mobile-menu-list">
           <li>
-            <a href="#list-your-vehicle" className="hover:text-blue-500">
+            <a href="#list-your-vehicle" className="mobile-menu-item">
               List Your Vehicle
             </a>
           </li>
           <li>
-            <Link to={'signup'} className="hover:text-blue-500">
+            <Link to="signup" className="mobile-menu-item">
               Sign Up
             </Link>
           </li>
           <li>
-            <a href="#blog" className="hover:text-blue-500">
+            <a href="#blog" className="mobile-menu-item">
               Blog
             </a>
           </li>
           <li>
-            <a href="#faq" className="hover:text-blue-500">
+            <a href="#faq" className="mobile-menu-item">
               FAQ
             </a>
           </li>
           <li>
-            <Link to={'Login'} className="bg-gradient-to-r from-blue-400 to-green-400 text-white font-semibold px-8 py-2 rounded-full hover:from-blue-500 hover:to-green-500 text-lg">
+            <Link to="Login" className="mobile-login-btn">
               Login
             </Link>
           </li>

@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Car from './Pages/Car.jsx';
 import CreateCar from './Pages/CreateCar.jsx';
 import UpdateCar from './Pages/UpdateCar.jsx';
-//import Register from './Pages/Register.jsx';
+import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
 
 function App() {

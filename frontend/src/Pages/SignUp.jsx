@@ -2,160 +2,134 @@ import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import "./SignUp.css";
 
 const SignUp = () => {
-    
-    const [values, setValues] = useState({
-      name: '',
-      mobile: '',
-      email: '',
-      passowrd: '',
-    })
+  const [values, setValues] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    password: "",
+  });
 
-    const handleChanges = (e) => {
-      setValues ({...values, [e.target.name]: e.target.value})
-    }
+  const handleChanges = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
-    function handleSubmit(event){
-      event.preventDefault();
-      axios.post('http://localhost:8081/create' , values)
-      .then(res => {
-          console.log('Response from server:', res.data);
-      }).catch(err => console.log(err));
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:8081/auth/signup", values)
+      .then((res) => console.log("Response from server:", res.data))
+      .catch((err) => console.error("Error from server:", err));
+  };
 
   return (
     <div>
-      <div><Navbar/></div>
-      <div className="min-h-screen flex justify-center items-center bg-gray-200 mt-10">
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-5xl flex overflow-hidden mt-20 mb-10">
-          
-          <div className="w-1/2 bg-gray-50 p-10 flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Sign Up</h2>
-            <p className="text-gray-600 mb-6">
+      <Navbar />
+      <div className="signup-container">
+        <div className="signup-box">
+          <div className="signup-left">
+            <h2 className="signup-title">Sign Up</h2>
+            <p className="signup-description">
               Please fill this form to create a new account.
             </p>
             <img
               src="https://via.placeholder.com/400x300"
               alt="Illustration"
-              className="w-full"
+              className="signup-image"
             />
           </div>
-
-          <div className="w-1/2 p-10">
+          <div className="signup-right">
             <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label
-                  htmlFor="first-name"
-                  className="block text-sm font-medium text-gray-700 text-start mb-2"
-                >
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   placeholder="Name"
-                  className="form-control w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="form-input"
                   required
                   name="name"
+                  value={values.name}
                   onChange={handleChanges}
                 />
               </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="mobile"
-                  className="block text-sm font-medium text-gray-700 text text-start mb-2"
-                >
+              <div className="form-group">
+                <label htmlFor="mobile" className="form-label">
                   Mobile
                 </label>
                 <div className="flex">
-                  <select
-                    className="form-control w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    style={{ width: "80px" }}
-                  >
+                  <select className="form-select">
                     <option value="+94">🇱🇰 +94</option>
                   </select>
                   <input
                     type="text"
                     id="mobile"
                     placeholder="Mobile"
-                    className="form-control w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="form-input"
                     required
                     name="mobile"
+                    value={values.mobile}
                     onChange={handleChanges}
                   />
                 </div>
               </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 text-start mb-2"
-                >
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
                   placeholder="Enter your email"
-                  className="form-control w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="form-input"
                   required
                   name="email"
+                  value={values.email}
                   onChange={handleChanges}
                 />
               </div>
-
-              <div className="mb-4 relative">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 text-start mb-2"
-                >
+              <div className="form-group">
+                <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
                   id="password"
                   placeholder="Enter your password"
-                  className="form-control w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="form-input"
                   required
                   name="password"
+                  value={values.password}
                   onChange={handleChanges}
                 />
-                <span className="absolute right-3 top-9 text-gray-500 cursor-pointer">
-                  👁
-                </span>
+                <span className="password-toggle">👁</span>
               </div>
-
               <div className="mb-4 flex items-center">
                 <input
                   type="checkbox"
                   id="terms"
-                  className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500"
+                  className="terms-checkbox"
                   required
                 />
-                <label
-                  htmlFor="terms"
-                  className="ml-2 text-sm text-gray-600"
-                >
+                <label htmlFor="terms" className="terms-label">
                   I agree to the{" "}
-                  <a href="#terms" className="text-blue-500 hover:underline">
+                  <a href="#terms" className="terms-link">
                     Terms and Conditions
                   </a>
                 </label>
               </div>
-
-              <button
-                type="submit"
-                className="mt-5 w-full bg-blue-500 text-white py-2 rounded-lg shadow-md hover:bg-blue-600"
-              >
+              <button type="submit" className="submit-button">
                 SIGN UP
               </button>
             </form>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
