@@ -12,9 +12,10 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     display: flex;
     overflow: hidden; 
-    width: 100%; 
+    width: 75%; 
     max-width: 80rem; 
-    margin-top: 5rem; 
+    margin-top: 7rem; 
+    margin-bottom: 2rem; 
   }
   
   .login-left {
@@ -50,11 +51,11 @@
   
   /* Mobile Title */
   .mobile-title {
-    font-size: 1.5rem; 
-    font-weight: bold; 
-    color: #1f2937; 
-    margin-bottom: 1.5rem; 
-    text-align: center; 
+    display: none;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 768px) {

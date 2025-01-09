@@ -41,6 +41,7 @@ const SignUp = () => {
             />
           </div>
           <div className="signup-right">
+          <h2 className="mobile-title">Start Journey</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name" className="form-label">

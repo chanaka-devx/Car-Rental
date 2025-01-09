@@ -126,3 +126,20 @@
     background-color: #2563eb;
   }
   
+  @media (max-width: 768px) {
+    .signup-left {
+      display: none; 
+    }
+
+    .signup-right {
+      width: 100%; 
+    }
+
+    .signup-title {
+      display: block; 
+    }
+
+    .signup-box {
+      width: 75%; 
+    }
+  }
