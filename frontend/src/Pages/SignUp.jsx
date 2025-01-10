@@ -12,16 +12,41 @@ const SignUp = () => {
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handleChanges = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8081/auth/signup", values)
-      .then((res) => console.log("Response from server:", res.data))
-      .catch((err) => console.error("Error from server:", err));
+    setError("");
+    setSuccess("");
+
+    try {
+      console.log("Submitting form with values:", values); // Debugging log
+      const response = await axios.post(
+        "http://localhost:8081/auth/register",
+        values
+      );
+      console.log("Response from server:", response.data);
+
+      if (response.data.success) {
+        setSuccess("User registered successfully!");
+        // Optionally, redirect to login page after a delay
+        // setTimeout(() => { window.location.href = "/login"; }, 2000);
+      } else {
+        setError(response.data.message || "Signup failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error from server:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
   };
 
   return (
@@ -41,8 +66,21 @@ const SignUp = () => {
             />
           </div>
           <div className="signup-right">
-          <h2 className="mobile-title">Start Journey</h2>
+            <h2 className="mobile-title">Start Your Journey</h2>
             <form onSubmit={handleSubmit}>
+              {/* Display Success Message */}
+              {success && (
+                <div className="success-message">
+                  {success}
+                </div>
+              )}
+              {/* Display Error Message */}
+              {error && (
+                <div className="error-message">
+                  {error}
+                </div>
+              )}
+              
               <div className="form-group">
                 <label htmlFor="name" className="form-label">
                   Name
@@ -107,7 +145,12 @@ const SignUp = () => {
                   value={values.password}
                   onChange={handleChanges}
                 />
-                <span className="password-toggle">👁</span>
+                <span className="password-toggle" onClick={() => {
+                  const passwordInput = document.getElementById("password");
+                  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+                }}>
+                  👁
+                </span>
               </div>
               <div className="mb-4 flex items-center">
                 <input

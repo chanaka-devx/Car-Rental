@@ -1,162 +1,181 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import "./Register.css";
 
-const SignUp = () => {
+const Register = () => {
+  const [values, setValues] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChanges = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+    setSuccess("");
+
+    try {
+      console.log("Submitting form with values:", values); // Debugging log
+      const response = await axios.post(
+        "http://localhost:3003/auth/register",
+        values
+      );
+      console.log("Response from server:", response.data);
+
+      if (response.data.success) {
+        setSuccess("User registered successfully!");
+        // Optionally, redirect to login page after a delay
+        // setTimeout(() => { window.location.href = "/login"; }, 2000);
+      } else {
+        setError(response.data.message || "Signup failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error from server:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-5xl flex overflow-hidden">
-        {/* Left Section */}
-        <div className="w-1/2 bg-gray-50 p-10 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Register as a Host</h2>
-          <p className="text-gray-600 mb-6">
-            Please fill this form to become a host.
-          </p>
-          <img
-            src="https://via.placeholder.com/400x300"
-            alt="Illustration"
-            className="w-full"
-          />
-        </div>
-
-        <div className="w-1/2 p-10">
-          <form>
-            <div className="mb-4">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                First Name *
-              </label>
-              <input
-                type="text"
-                id="first-name"
-                placeholder="First Name"
-                className="pl-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Last Name *
-              </label>
-              <input
-                type="text"
-                id="last-name"
-                placeholder="Last Name"
-                className="pl-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="company-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Company Name
-              </label>
-              <input
-                type="text"
-                id="company-name"
-                placeholder="Company Name"
-                className="pl-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="mobile"
-                className="block text-sm font-medium text-gray-700 text"
-              >
-                Mobile *
-              </label>
-              <div className="flex">
-                <select
-                  className="border-gray-300 rounded-l-md focus:ring-orange-500 focus:border-orange-500"
-                  style={{ width: "80px" }}
-                >
-                  <option value="+94">🇱🇰 +94</option>
-                </select>
+    <div>
+      <Navbar />
+      <div className="signup-container">
+        <div className="signup-box">
+          <div className="signup-left">
+            <h2 className="signup-title">Sign Up</h2>
+            <p className="signup-description">
+              Please fill this form to create a new account.
+            </p>
+            <img
+              src="https://via.placeholder.com/400x300"
+              alt="Illustration"
+              className="signup-image"
+            />
+          </div>
+          <div className="signup-right">
+            <h2 className="mobile-title">Start Your Journey</h2>
+            <form onSubmit={handleSubmit}>
+              {/* Display Success Message */}
+              {success && (
+                <div className="success-message">
+                  {success}
+                </div>
+              )}
+              {/* Display Error Message */}
+              {error && (
+                <div className="error-message">
+                  {error}
+                </div>
+              )}
+              
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">
+                  Name
+                </label>
                 <input
                   type="text"
-                  id="mobile"
-                  placeholder="Mobile"
-                  className="pl-1 mt-1 flex-1 block w-full border-gray-300 rounded-r-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
+                  id="name"
+                  placeholder="Name"
+                  className="form-input"
                   required
+                  name="name"
+                  value={values.name}
+                  onChange={handleChanges}
                 />
               </div>
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email *
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                className="pl-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
-                required
-              />
-            </div>
-
-            {/* Password */}
-            <div className="mb-4 relative">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password *
-              </label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                className="pl-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
-                required
-              />
-              <span className="absolute right-3 top-6 text-gray-500 cursor-pointer">
-                👁
-              </span>
-            </div>
-
-            {/* Terms and Conditions */}
-            <div className="mb-4 flex items-center">
-              <input
-                type="checkbox"
-                id="terms"
-                className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500"
-                required
-              />
-              <label
-                htmlFor="terms"
-                className="ml-2 text-sm text-gray-600"
-              >
-                I agree to the{" "}
-                <a href="#terms" className="text-blue-500 hover:underline">
-                  Terms and Conditions
-                </a>
-              </label>
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-xl shadow-md hover:bg-blue-600"
-            >
-              SIGN UP
-            </button>
-          </form>
+              <div className="form-group">
+                <label htmlFor="mobile" className="form-label">
+                  Mobile
+                </label>
+                <div className="flex">
+                  <select className="form-select">
+                    <option value="+94">🇱🇰 +94</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="mobile"
+                    placeholder="Mobile"
+                    className="form-input"
+                    required
+                    name="mobile"
+                    value={values.mobile}
+                    onChange={handleChanges}
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  className="form-input"
+                  required
+                  name="email"
+                  value={values.email}
+                  onChange={handleChanges}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter your password"
+                  className="form-input"
+                  required
+                  name="password"
+                  value={values.password}
+                  onChange={handleChanges}
+                />
+                <span className="password-toggle" onClick={() => {
+                  const passwordInput = document.getElementById("password");
+                  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+                }}>
+                  👁
+                </span>
+              </div>
+              <div className="mb-4 flex items-center">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  className="terms-checkbox"
+                  required
+                />
+                <label htmlFor="terms" className="terms-label">
+                  I agree to the{" "}
+                  <a href="#terms" className="terms-link">
+                    Terms and Conditions
+                  </a>
+                </label>
+              </div>
+              <button type="submit" className="submit-button">
+                SIGN UP
+              </button>
+            </form>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default SignUp;
+export default Register;

@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 //import Navbar from './Components/Navbar.jsx';
 import SignUp from './Pages/SignUp.jsx';
+import Register from './Pages/Register.jsx';
 //import Home from './Pages/Home.jsx'
 //import Footer from './Components/Footer.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -18,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element ={<Car/>}/>
-          <Route path='/signup' element ={<SignUp/>}/>
+          <Route path='/register' element ={<Register/>}/>
           <Route path='/login' element ={<Login/>}/>
           <Route path='/create' element ={<CreateCar/>}/>
           <Route path='/update/:id' element ={<UpdateCar/>}/>
