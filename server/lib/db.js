@@ -4,18 +4,23 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+let pool;
+
 export const connectToDatabase = async () => {
-  try {
-    const connection = await mysql.createConnection({
-      host: process.env.DB_HOST || "bs4qh2sqzllqiywkhuue-mysql.services.clever-cloud.com",
-      user: process.env.DB_USER || "ujzgtj3nzwetaf8n",
-      password: process.env.DB_PASSWORD || "X9WoYt9eooRIgs91VSrH",
-      database: process.env.DB_DATABASE || "bs4qh2sqzllqiywkhuue",
+
+  if (!pool) {
+    pool = mysql.createPool({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      waitForConnections: true,
+      connectionLimit: 10, // Adjust based on your DB limit
+      queueLimit: 0, // Unlimited queue
     });
-    console.log("Connected to the database.");
-    return connection;
-  } catch (error) {
-    console.error("Database connection failed:", error);
-    throw error;
   }
+  return pool;
+  
+
+  
 };

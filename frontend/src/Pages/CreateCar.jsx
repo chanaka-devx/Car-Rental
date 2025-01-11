@@ -1,34 +1,50 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import Footer from '../Components/Footer.jsx';
-import './CreateCar.css';
+import Footer from "../Components/Footer.jsx";
+import "./CreateCar.css";
 
 const CreateCar = () => {
-    const [brand, setBrand] = useState('');
-    const [model, setModel] = useState('');
-    const [vnumber, setVnumber] = useState('');
-    const [color, setColor] = useState('');
-    const [yom, setYom] = useState('');
-    const navigate = useNavigate();
+    const [imagePreview, setImagePreview] = useState(null); // State for previewing the image
 
-    function handleSubmit(event) {
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setImagePreview(URL.createObjectURL(file));
+        } else {
+            setImagePreview(null);
+        }
+    };
+
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8081/create', { brand, model, vnumber, color, yom })
-            .then(res => {
-                console.log('Response from server:', res.data);
-                navigate('/');
-            })
-            .catch(err => console.log(err));
-    }
+        const formData = new FormData(event.target); // Automatically gets all form fields
+
+        try {
+            const response = await fetch("http://localhost:3004/create", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+            console.log(result);
+
+            if (result.success) {
+                alert("Car uploaded successfully!");
+            } else {
+                alert("Error: " + result.message);
+            }
+        } catch (err) {
+            console.error("Error uploading car:", err);
+            alert("An error occurred while uploading the car.");
+        }
+    };
 
     return (
         <div>
             <Navbar />
             <div className="create-car-container">
                 <div className="form-container">
-                    <form onSubmit={handleSubmit}>
+                    <form id="carForm" onSubmit={handleFormSubmit} encType="multipart/form-data">
                         <h2 className="form-title">Add Car</h2>
 
                         <div className="form-group">
@@ -36,8 +52,8 @@ const CreateCar = () => {
                             <input
                                 type="text"
                                 id="brand"
+                                name="brand"
                                 placeholder="Enter Brand"
-                                onChange={e => setBrand(e.target.value)}
                                 required
                             />
                         </div>
@@ -47,8 +63,8 @@ const CreateCar = () => {
                             <input
                                 type="text"
                                 id="model"
+                                name="model"
                                 placeholder="Enter Model"
-                                onChange={e => setModel(e.target.value)}
                                 required
                             />
                         </div>
@@ -58,8 +74,8 @@ const CreateCar = () => {
                             <input
                                 type="text"
                                 id="vnumber"
+                                name="vnumber"
                                 placeholder="Enter Vehicle Number"
-                                onChange={e => setVnumber(e.target.value)}
                                 required
                             />
                         </div>
@@ -69,8 +85,8 @@ const CreateCar = () => {
                             <input
                                 type="text"
                                 id="color"
+                                name="color"
                                 placeholder="Enter Color"
-                                onChange={e => setColor(e.target.value)}
                                 required
                             />
                         </div>
@@ -78,12 +94,33 @@ const CreateCar = () => {
                         <div className="form-group">
                             <label htmlFor="yom">Year of Manufacture (YOM)</label>
                             <input
-                                type="text"
+                                type="number"
                                 id="yom"
+                                name="yom"
                                 placeholder="Enter Year of Manufacture"
-                                onChange={e => setYom(e.target.value)}
                                 required
                             />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="image">Car Image</label>
+                            <input
+                                type="file"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                                onChange={handleImageChange} // Use handler for preview
+                                required
+                            />
+                            {imagePreview && (
+                                <div className="image-preview-container">
+                                    <img
+                                        src={imagePreview}
+                                        alt="Car Preview"
+                                        className="image-preview"
+                                    />
+                                </div>
+                            )}
                         </div>
 
                         <button type="submit" className="submit-button">
@@ -92,7 +129,7 @@ const CreateCar = () => {
                     </form>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

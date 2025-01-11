@@ -16,8 +16,8 @@ function Car() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete('http://localhost:3003/student/' + id);
-      window.location.reload();
+      await axios.delete('http://localhost:3003/car/${id}' + id);
+      setCar(car.filter((c) => c.ID !== id)); // Remove deleted item from state
     } catch (err) {
       console.log(err);
     }
@@ -34,42 +34,32 @@ function Car() {
               Add +
             </Link>
           </div>
-          <table className="car-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Vehicle Number</th>
-                <th>Color</th>
-                <th>YOM</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {car.map((data, i) => (
-                <tr key={i}>
-                  <td>{data.ID}</td>
-                  <td>{data.Brand}</td>
-                  <td>{data.Model}</td>
-                  <td>{data.Number}</td>
-                  <td>{data.Color}</td>
-                  <td>{data.YOM}</td>
-                  <td>
-                    <Link to={`update/${data.id}`} className="update-button">
-                      Update
-                    </Link>
-                    <button
-                      className="delete-button"
-                      onClick={() => handleDelete(data.ID)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="card-grid">
+            {car.map((data, i) => (
+              <div key={i} className="car-card">
+                <img
+                  src={data.Image || '/placeholder-image.png'} // Use raw Dropbox link or fallback
+                  alt={`${data.Brand} ${data.Model}`}
+                  className="car-image"
+                />
+                <h3>{data.Brand} {data.Model}</h3>
+                <p><strong>Vehicle Number:</strong> {data.Number}</p>
+                <p><strong>Color:</strong> {data.Color}</p>
+                <p><strong>Year of Manufacture (YOM):</strong> {data.YOM}</p>
+                <div className="card-actions">
+                  <Link to={`update/${data.ID}`} className="update-button">
+                    Update
+                  </Link>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(data.ID)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />

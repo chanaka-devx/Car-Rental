@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -12,6 +13,9 @@ const Login = () => {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChanges = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -21,6 +25,7 @@ const Login = () => {
     event.preventDefault();
     setError("");
     setSuccess("");
+    setLoading(true);
 
     try {
       console.log("Submitting login with values:", values); // Debugging log
@@ -37,6 +42,7 @@ const Login = () => {
           localStorage.setItem("token", response.data.token);
         }
         // Optionally, redirect to dashboard
+        navigate("/dashboard");
         // window.location.href = "/dashboard";
       } else {
         setError(response.data.message || "Login failed. Please try again.");

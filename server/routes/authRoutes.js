@@ -3,8 +3,13 @@ import express from 'express';
 import { connectToDatabase } from '../lib/db.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import {authenticateToken} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
+
+router.get("/dashboard", authenticateToken, (req, res) => {
+  res.json({ success: true, message: "Welcome to the dashboard!" });
+});
 
 // REGISTER (SIGN-UP)
 router.post('/register', async (req, res) => {
@@ -40,38 +45,39 @@ router.post('/login', async (req, res) => {
   try {
     const db = await connectToDatabase();
 
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: "Email and password are required." });
+    }
+
     // Check if user exists in DB
     const [rows] = await db.query('SELECT * FROM users WHERE Email = ?', [email]);
     if (rows.length === 0) {
-      return res.status(401).json({ success: false, message: "User does not exist." });
+      return res.status(401).json({ success: false, message: "Invalid email or password." });
     }
 
     const user = rows[0];
 
     // Compare submitted password with hashed password
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.Password); // Case-sensitive match
     if (!isMatch) {
-      return res.status(401).json({ success: false, message: "Invalid password." });
+      return res.status(401).json({ success: false, message: "Invalid email or password." });
     }
 
-    // If password matches, user is authenticated
-    // Optionally, generate a JWT token here
+    // Generate a JWT token
     const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET, // Use the secret from environment variables
-      { expiresIn: '1h' } // Token expires in 1 hour
+      { id: user.id, email: user.Email },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
     );
-    // Example (requires jsonwebtoken package):
-    /*
-    const jwt = require('jsonwebtoken');
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    return res.status(200).json({ success: true, message: "Login successful.", token });
-    */
 
-    return res.status(200).json({ success: true, message: "Login successful." });
+    return res.status(200).json({
+      success: true,
+      message: "Login successful.",
+      token,
+    });
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ success: false, error: err.message });
+    console.error("Error in /login:", err);
+    return res.status(500).json({ success: false, error: "Internal server error." });
   }
 });
 

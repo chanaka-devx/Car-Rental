@@ -12,6 +12,8 @@ import CreateCar from './Pages/CreateCar.jsx';
 import UpdateCar from './Pages/UpdateCar.jsx';
 import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
+import Dashboard from './Pages/Dashboard.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
 
 function App() {
   return (
@@ -21,6 +23,14 @@ function App() {
           <Route path='/' element ={<Car/>}/>
           <Route path='/register' element ={<Register/>}/>
           <Route path='/login' element ={<Login/>}/>
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
           <Route path='/create' element ={<CreateCar/>}/>
           <Route path='/update/:id' element ={<UpdateCar/>}/>
         </Routes>

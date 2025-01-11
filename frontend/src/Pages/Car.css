@@ -1,160 +1,88 @@
 .car-container {
-    padding: 1.25rem; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #e5e7eb; 
-    min-height: 100vh; 
-    margin-top: 1.25rem; 
-  }
-  
-  .car-content {
-    background-color: #ffffff; 
-    margin: 1.5rem; 
-    padding: 1.5rem; 
-    border-radius: 0.5rem; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    width: 100%;
-    max-width: 1024px; 
-    margin-top: 5rem; 
-  }
-  
-  .header {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  }
+  padding: 30px;
+  height: 100%;
+  min-height: 100vh;
+}
 
-  .add-button-container {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 1rem; 
-  }
-  
-  .add-button {
-    background-color: #22c55e; 
-    color: white;
-    padding: 0.5rem 1rem; 
-    border-radius: 0.375rem; 
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .add-button:hover {
-    background-color: #16a34a; 
-  }
-  
-  .car-table {
-    width: 100%; 
-    border-collapse: collapse;
-    text-align: left;
-  }
-  
-  .car-table th {
-    padding: 0.75rem; 
-    border-bottom: 2px solid #d1d5db; 
-    text-transform: uppercase;
-    font-size: 0.875rem; 
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .car-table td {
-    padding: 0.75rem; 
-    border-bottom: 1px solid #d1d5db; 
-    font-size: 0.875rem; 
-    text-align: center;
-  }
-  
-  .car-table tr:hover {
-    background-color: #f9fafb; 
-  }
-  
-  /* Action Buttons */
-  .update-button,
-  .delete-button {
-    padding: 0.5rem 1rem; 
-    font-size: 0.875rem; 
-    border-radius: 0.375rem;
-    margin: 0.25rem; 
-    color: white;
-    font-weight: bold; 
-    transition: background-color 0.3s, transform 0.2s;
-    display: inline-block;
-  }
-  
-  .update-button {
-    background-color: #3b82f6;
-  } 
-  
-  .update-button:hover {
-    background-color: #2563eb;
-  }
-  
-  .delete-button {
-    background-color: #ef4444; 
-  }
-  
-  .delete-button:hover {
-    background-color: #dc2626; 
-  }
-  
-  /* Responsive Design */
-  
-  @media (max-width: 768px) {
-    .car-content {
-      padding: 1rem; 
-      margin: 1rem; 
-    }
-  
-    .car-table th,
-    .car-table td {
-      padding: 0.5rem; 
-      font-size: 0.75rem; 
-    }}
-  
-    .add-button {
-      padding: 0.5rem 0.75rem; 
-      font-size: 0.875rem; 
-  
-    .update-button,
-    .delete-button {
-      padding: 0.4rem 0.8rem; 
-      font-size: 0.8rem; 
-  }}
-  
-  /* Mobile View */
-  @media (max-width: 480px) {
-    .car-container {
-      padding: 1rem; 
-    }
-  
-    .car-content {
-      margin: 1rem 0; 
-    }
-  
-    .add-button {
-      width: 10%;
-      text-align: center;
-      padding: 0.5rem; 
-    }
-  
-    .car-table {
-      font-size: 0.75rem; 
-    }
-  
-    .car-table th,
-    .car-table td {
-      padding: 0.5rem; 
-    }
-  
-    .update-button,
-    .delete-button {
-      width: 100%; 
-      margin: 0.25rem 0; 
-      text-align: center;
-    }
-  }
-  
+.header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.add-button-container {
+  text-align: right;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  padding-right: 10px;
+}
+
+.add-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.car-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.car-card h3 {
+  margin: 0 0 10px;
+}
+
+.car-card p {
+  margin: 5px 0;
+}
+
+.card-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-button:hover,
+.delete-button:hover {
+  opacity: 0.9;
+}
