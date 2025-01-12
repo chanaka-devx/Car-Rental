@@ -68,7 +68,7 @@ app.get('/', async (req, res) => {
 
           // Ensure the file path starts with "/CarRental/" and append the unique ID
           if (!filePath.startsWith('/CarRental')) {
-            filePath = `/CarRental/${uniqueId}_${filePath}`;
+            filePath = `/CarRental${uniqueId}_${filePath}`;
           }
 
           console.log(`Processing filePath: ${filePath}`);
