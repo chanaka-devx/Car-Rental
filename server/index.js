@@ -12,6 +12,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { Dropbox } from 'dropbox';
 import { v4 as uuidv4 } from 'uuid';
+import usersRoute from "./routes/usersRoute.js"; 
 
 
 dotenv.config();
@@ -25,6 +26,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+app.use("/users", usersRoute);
 
 // Configure Multer for image uploads
 const uploadDir = path.join(process.cwd(), 'uploads');

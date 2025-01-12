@@ -48,9 +48,11 @@ const Login = () => {
         setError(response.data.message || "Login failed. Please try again.");
       }
     } catch (err) {
+      setLoading(false);
       console.error("Error from server:", err);
       if (err.response && err.response.data && err.response.data.message) {
         setError(err.response.data.message);
+        navigate("/login");
       } else {
         setError("An unexpected error occurred.");
       }

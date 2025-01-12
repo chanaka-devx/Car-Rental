@@ -12,13 +12,13 @@ const PrivateRoute = ({ children }) => {
       if (decodedToken.exp < currentTime) {
         // Token expired
         localStorage.removeItem("token"); // Clear the token
-        return <Navigate to="/" replace />; // Redirect to login
+        return <Navigate to="/login" replace />; // Redirect to login
       }
       return children; // Token is valid, render the protected component
     } catch (err) {
       // Invalid token
       localStorage.removeItem("token");
-      return <Navigate to="/" replace />;
+      return <Navigate to="/login" replace />;
     }
   }
 

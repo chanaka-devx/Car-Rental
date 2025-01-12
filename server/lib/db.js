@@ -12,7 +12,7 @@ export const connectToDatabase = async () => {
     pool = mysql.createPool({
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
+      password: process.env.DB_PASSWORD || X9WoYt9eooRIgs91VSrH,
       database: process.env.DB_NAME,
       waitForConnections: true,
       connectionLimit: 10, // Adjust based on your DB limit
