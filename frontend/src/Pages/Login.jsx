@@ -5,6 +5,7 @@ import Footer from "../Components/Footer";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import LoginImage from "../Images/Login.jpg";
+import {jwtDecode} from "jwt-decode";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -36,18 +37,22 @@ const Login = () => {
       );
       console.log("Response from server:", response.data);
 
-      if (response.data.success) {
-        setSuccess(response.data.message || "Login successful!");
-        // Store token in localStorage
-        if (response.data.token) {
-          localStorage.setItem("token", response.data.token);
-        }
-        // Optionally, redirect to dashboard
-        navigate("/dashboard");
-        // window.location.href = "/dashboard";
+      // 2) Get token from response
+      const { token } = response.data;
+
+      // 3) Store token in localStorage
+      localStorage.setItem('token', token);
+
+      // 4) Decode token to check role
+      const decoded = jwtDecode(token);
+      const userRole = decoded.role;
+
+      if (userRole === 'admin') {
+        navigate('/car'); // Admin route
       } else {
-        setError(response.data.message || "Login failed. Please try again.");
+        navigate('/dashboard'); // User route
       }
+      
     } catch (err) {
       setLoading(false);
       console.error("Error from server:", err);

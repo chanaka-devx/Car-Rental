@@ -1,13 +1,13 @@
 /* Container for the rides section */
 .rides-container {
-    padding: 40px 5rem 40px 5rem;   
-    font-family: Arial, sans-serif;
-    color: #005c85;
-    background-color: #f3f9ff;
-  }
-  
-  .scroll-buttons {
-    display: flex;
+  font-family: Arial, sans-serif;
+  color: #005c85;
+  background-color: #f3f9ff;
+}
+
+.scroll-buttons {
+  display: flex;
+  margin: 2rem 4rem 2rem 4rem; 
   }
 
   .rides-container h1 {
@@ -23,10 +23,10 @@
   /* Scrollable container for cards */
   .rides-scroll {
     display: flex;
-    gap: 20px;
+    gap: 2.5rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory; /* Enables smooth snapping */
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
   }
   
   /* Individual card styling */
@@ -62,7 +62,7 @@
   
   /* Card content */
   .card-content {
-    padding: 15px;
+    padding: 1rem;
     text-align: left;
   }
   
