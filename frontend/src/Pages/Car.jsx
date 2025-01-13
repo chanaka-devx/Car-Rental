@@ -45,7 +45,7 @@ function Car() {
                 <h3>{data.Brand} {data.Model}</h3>
                 <p><strong>Vehicle Number:</strong> {data.Number}</p>
                 <p><strong>Color:</strong> {data.Color}</p>
-                <p><strong>Year of Manufacture (YOM):</strong> {data.YOM}</p>
+                <p><strong>Price:</strong> Rs.{data.Price}.00 / Day</p>
                 <div className="card-actions">
                   <Link to={`update/${data.ID}`} className="update-button">
                     Update

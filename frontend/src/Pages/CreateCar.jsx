@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer.jsx";
 import "./CreateCar.css";
+import { useNavigate } from "react-router-dom";
 
 const CreateCar = () => {
     const [imagePreview, setImagePreview] = useState(null); // State for previewing the image
+
+    const navigate = useNavigate();
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -20,7 +23,7 @@ const CreateCar = () => {
         const formData = new FormData(event.target); // Automatically gets all form fields
 
         try {
-            const response = await fetch("http://localhost:3004/create", {
+            const response = await fetch("http://localhost:3003/create", {
                 method: "POST",
                 body: formData,
             });
@@ -30,12 +33,13 @@ const CreateCar = () => {
 
             if (result.success) {
                 alert("Car uploaded successfully!");
+                navigate("/cars");
             } else {
                 alert("Error: " + result.message);
             }
         } catch (err) {
             console.error("Error uploading car:", err);
-            alert("An error occurred while uploading the car.");
+            alert("An error red while uploading the car.");
         }
     };
 
@@ -98,6 +102,17 @@ const CreateCar = () => {
                                 id="yom"
                                 name="yom"
                                 placeholder="Enter Year of Manufacture"
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="yom">Price</label>
+                            <input
+                                type="number"
+                                id="price"
+                                name="price"
+                                placeholder="Enter Price"
                                 required
                             />
                         </div>

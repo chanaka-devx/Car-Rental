@@ -1,0 +1,144 @@
+/* Container for the rides section */
+.rides-container {
+    padding: 40px 5rem 40px 5rem;   
+    font-family: Arial, sans-serif;
+    color: #005c85;
+    background-color: #f3f9ff;
+  }
+  
+  .scroll-buttons {
+    display: flex;
+  }
+
+  .rides-container h1 {
+    font-size: 2.5rem;
+    color: #005c85;
+    margin-bottom: 2rem;
+  }
+
+  .arrow-button{
+    font-size: 7rem; 
+  }
+  
+  /* Scrollable container for cards */
+  .rides-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Enables smooth snapping */
+    padding-bottom: 20px;
+  }
+  
+  /* Individual card styling */
+  .card {
+    flex: 0 0 250px; /* Fixed width for cards */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+  
+  .card-image {
+    position: relative;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .price-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #3b82f6;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  /* Card content */
+  .card-content {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .card-content h3 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .km {
+    font-weight: bold;
+    color: #3b82f6;
+  }
+  
+  /* Ratings and reviews */
+  .ratings {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .star {
+    font-size: 1rem;
+    color: #ffd700; /* Gold for stars */
+  }
+  
+  .star.filled {
+    color: #ffd700;
+  }
+  
+  .reviews {
+    font-size: 0.8rem;
+    color: #777;
+    margin-left: 5px;
+  }
+  
+  /* Book Now button */
+  .book-now {
+    display: block;
+    width: 100%;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .book-now:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Scrollbar styling */
+  .rides-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .rides-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .rides-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #bbb;
+  }
+  
+  @media (max-width: 768px) {
+    .rides-container {
+      padding: 1rem;
+    }
+  }

@@ -1,9 +1,16 @@
 import React from "react";
+import Navbar from "../Components/Navbar";
+import Start from "../Components/Start";
+import Rides from "../Components/Rides";
+import Footer from "../Components/Footer";
 
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Welcome to the Dashboard!</h1>
+      <div>
+      <Navbar />
+      <Start/>
+      <Rides/>
+      <Footer/>
     </div>
   );
 };

@@ -1,0 +1,84 @@
+.dialog-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../Images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    max-width: 100%;
+}
+
+.dialog-box {
+    margin-top: 5rem;
+    background: linear-gradient(to right, rgba(31, 41, 55, 0.9), transparent, rgba(31, 41, 55, 0.9));
+    border-radius: 1.5rem;
+    padding: 2rem;
+    max-width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.dialog-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.dialog-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.dialog-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-field label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.dialog-field input, 
+.dialog-field select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 1rem;
+}
+
+.dialog-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.dialog-button {
+    padding: 1rem 2rem;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dialog-button:hover {
+    background: rgba(31, 41, 55, 1);
+}
+
+@media (max-width: 768px) {
+    .dialog-box{
+        margin: 6rem 1rem 1rem 1rem;
+    }
+  }

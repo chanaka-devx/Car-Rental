@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import LoginImage from "../Images/Login.jpg";
 import "./Register.css";
 
 const Register = () => {
@@ -60,7 +61,7 @@ const Register = () => {
               Please fill this form to create a new account.
             </p>
             <img
-              src="https://via.placeholder.com/400x300"
+              src={LoginImage}
               alt="Illustration"
               className="signup-image"
             />

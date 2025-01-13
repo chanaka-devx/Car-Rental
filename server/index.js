@@ -115,7 +115,7 @@ app.post('/create', upload.single('image'), async (req, res) => {
     console.log("Request body:", req.body);
     console.log("Uploaded file:", req.file);
 
-    const { brand, model, vnumber, color, yom } = req.body;
+    const { brand, model, vnumber, color, yom, price } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ success: false, message: 'No image uploaded.' });
@@ -136,13 +136,13 @@ app.post('/create', upload.single('image'), async (req, res) => {
 
     // Save car data to database
     const db = await connectToDatabase();
-    const sql = "INSERT INTO cars (`Brand`, `Model`, `Number`, `Color`, `YOM`, `Image`) VALUES (?, ?, ?, ?, ?, ?)";
-    await db.query(sql, [brand, model, vnumber, color, yom, dropboxPath]);
+    const sql = "INSERT INTO cars (`Brand`, `Model`, `Number`, `Color`, `YOM`, `Price`, `Image`) VALUES (?, ?, ?, ?, ?, ? , ?)";
+    await db.query(sql, [brand, model, vnumber, color, yom, price, dropboxPath]);
 
     res.status(201).json({
       success: true,
       message: 'Car created successfully!',
-      data: { brand, model, vnumber, color, yom, image: dropboxPath },
+      data: { brand, model, vnumber, color, yom, price, image: dropboxPath },
     });
   } catch (err) {
     console.error('Error uploading to Dropbox:', err);
@@ -154,12 +154,12 @@ app.post('/create', upload.single('image'), async (req, res) => {
 
 // Update an existing car
 app.put('/update/:id', async (req, res) => {
-  const { brand, model, vnumber, color, yom } = req.body;
+  const { brand, model, vnumber, color, yom, price } = req.body;
   const id = req.params.id;
   try {
     const db = await connectToDatabase();
     const sql = "UPDATE cars SET `Brand` = ?, `Model` = ?, `Number` = ?, `Color` = ?, `YOM` = ? WHERE `ID` = ?";
-    const [result] = await db.query(sql, [brand, model, vnumber, color, yom, id]);
+    const [result] = await db.query(sql, [brand, model, vnumber, color, yom, price, id]);
     return res.json({ success: true, data: result });
   } catch (err) {
     console.error(err);

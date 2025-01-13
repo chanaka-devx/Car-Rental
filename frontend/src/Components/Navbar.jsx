@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import RentRide from '../../src/Images/logo3.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Check token in localStorage
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  // Handler to remove token and redirect
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/"; // or use React Router's navigate
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -24,9 +34,11 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <Link to="/register" className="menu-item">
-              Sign Up
-            </Link>
+            {token ? (
+              <button className="menu-item" onClick={() => navigate("/profile")}>Profile</button>
+            ) : (
+              <button className="menu-item" onClick={() => navigate("/register")}>SignUp</button>
+            )}
           </li>
           <li>
             <a href="#blog" className="menu-item">
@@ -41,9 +53,11 @@ const Navbar = () => {
         </ul>
 
         <div className="login-btn-container">
-          <Link to="/Login" className="login-btn">
-            Login
-          </Link>
+          {token ? (
+            <button className="login-btn" onClick={handleLogout}>Logout</button>
+          ) : (
+            <button className="login-btn" onClick={() => navigate("/login")}>Login</button>
+          )}
         </div>
 
         {/* Mobile Menu */}

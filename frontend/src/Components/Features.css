@@ -1,0 +1,134 @@
+/* Main container for the section */
+.covered-container {
+    background-color: #f9f9f9;
+    padding: 40px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Section title */
+  .covered-container h1 {
+    font-size: 2.5rem;
+    color: #005c85;
+    margin-bottom: 10px;
+  }
+  
+  /* Description under the title */
+  .covered-description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  
+  /* Features container */
+  .covered-features {
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+    flex-wrap: wrap; /* Enables wrapping for responsive design */
+  }
+  
+  /* Individual feature card */
+  .feature {
+    max-width: 250px;
+    text-align: center;
+    flex: 1 1 calc(33.33% - 30px); /* 3 cards per row with spacing */
+    margin-bottom: 20px; /* Adds spacing between rows */
+  }
+  
+  /* Feature image styles */
+  .feature-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Feature title */
+  .feature h3 {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+  }
+  
+  /* Feature description */
+  .feature p {
+    font-size: 0.9rem;
+    color: #777;
+    line-height: 1.5;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .covered-features {
+      gap: 20px; /* Reduced gap for tablets */
+    }
+  
+    .feature {
+      flex: 1 1 calc(50% - 20px); /* 2 cards per row on tablets */
+    }
+  
+    .covered-container h1 {
+      font-size: 2rem;
+    }
+  
+    .covered-description {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .feature {
+      flex: 1 1 100%; /* Stacks each card in a row for mobile */
+    }
+  
+    .covered-container {
+      padding: 20px;
+    }
+  
+    .feature h3 {
+      font-size: 1rem;
+    }
+  
+    .feature p {
+      font-size: 0.85rem;
+    }
+  
+    .feature-image {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .covered-container h1 {
+      font-size: 1.8rem;
+    }
+  
+    .covered-description {
+      font-size: 0.9rem;
+    }
+  
+    .feature h3 {
+      font-size: 0.95rem;
+    }
+  
+    .feature p {
+      font-size: 0.8rem;
+    }
+  
+    .feature-image {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  

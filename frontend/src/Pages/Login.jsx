@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import LoginImage from "../Images/Login.jpg";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -65,10 +66,10 @@ const Login = () => {
         <div className="login-box">
           {/* Left Section */}
           <div className="login-left">
-            <h2 className="login-title">Login</h2>
+            <h2 className="login-title">Welcome Back</h2>
             <p className="login-description">Login to your account.</p>
             <img
-              src="https://via.placeholder.com/400x300"
+              src={LoginImage}
               alt="Illustration"
               className="login-image"
             />
