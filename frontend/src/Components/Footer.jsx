@@ -1,49 +1,41 @@
-import React from 'react';
+import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import "./Footer.css";
 
-const Footer = () =>{
-
-    return(
-        <div className="bg-gray-800 text-gray-400 text-center py-4">
-            <h4>Follow us on</h4>
-        <div className="mt-3 mb-3 flex justify-center space-x-6 text-lg mb-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-            <FaFacebook />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-            <FaTwitter />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-            <FaInstagram />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-            <FaLinkedin />
-            </a>
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: support@rentride.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
         </div>
-
-        <div className="flex flex-wrap justify-center space-x-4 text-sm">
-            <a href="#about" class="hover:text-white">About Us</a>
-            <span>|</span>
-            <a href="#privacy-policy" class="hover:text-white">Privacy Policy</a>
-            <span>|</span>
-            <a href="#terms" class="hover:text-white">Terms & Conditions</a>
-            <span>|</span>
-            <a href="#faq" class="hover:text-white">FAQ</a>
-            <span>|</span>
-            <a href="#promote" class="hover:text-white">List Your Vehicle</a>
-            <span>|</span>
-            <a href="#contact" class="hover:text-white">Contact</a>
-            <span>|</span>
-            <a href="#publish" class="hover:text-white">Publish your ad for free</a>
+        <div className="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/properties">Privacy Policy</a></li>
+            <li><a href="/faq">Terms and Conditions</a></li>
+          </ul>
         </div>
-
-        <div className="mt-4 text-sm">
-            <p>
-            copyright © 2025 <a href="https://RentRide.com" class="text-white hover:underline">RentRide  </a> 
-            | developing by <a href="https://lankanrentals.com" class="text-white hover:underline">  Chanaka Malawige</a>
+        <div className="footer-section">
+          <h3>Follow Us</h3>
+          <div className="social-icons">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook/></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter/></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom">
+      <p>
+            copyright © 2025 <a href="https://RentRide.com" >RentRide  </a> 
+            | developing by <a href="https://lankanrentals.com" >  Chanaka Malawige</a>
             </p>
-        </div>
-        </div>
-    );
+      </div>
+    </footer>
+  );
 };
+
 export default Footer;

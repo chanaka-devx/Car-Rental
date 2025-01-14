@@ -7,13 +7,14 @@
 
 .scroll-buttons {
   display: flex;
-  margin: 2rem 4rem 2rem 4rem; 
+  margin: 2rem 4rem 0rem 4rem;
+  padding-bottom: 2rem; 
   }
 
   .rides-container h1 {
     font-size: 2.5rem;
     color: #005c85;
-    margin-bottom: 2rem;
+    padding: 2rem 0 2rem 0;
   }
 
   .arrow-button{
