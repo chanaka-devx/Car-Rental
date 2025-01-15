@@ -96,7 +96,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="#blog" className="mobile-menu-item">
+            <a href="/about" className="mobile-menu-item">
               Blog
             </a>
           </li>

@@ -11,6 +11,9 @@ import Login from './Pages/Login.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import Profile from './Pages/Profile.jsx';
 import Dashboard from './Pages/Dashboard.jsx';
+import About from './Pages/About.jsx';
+import Privacy from './Pages/Privacy.jsx';
+import Terms from './Pages/Terms.jsx';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path='/register' element ={<Register/>}/>
           <Route path='/login' element ={<Login/>}/>
           <Route path='/car' element ={<Car/>}/>
+          <Route path='/about' element ={<About/>}/>
+          <Route path='/privacy' element ={<Privacy/>}/>
+          <Route path='/terms&conditions' element ={<Terms/>}/>
           <Route
             path="/dashboard"
             element={

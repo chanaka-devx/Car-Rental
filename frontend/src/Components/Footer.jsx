@@ -15,8 +15,8 @@ const Footer = () => {
           <h3>Quick Links</h3>
           <ul>
             <li><a href="/about">About Us</a></li>
-            <li><a href="/properties">Privacy Policy</a></li>
-            <li><a href="/faq">Terms and Conditions</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms&conditions">Terms and Conditions</a></li>
           </ul>
         </div>
         <div className="footer-section">

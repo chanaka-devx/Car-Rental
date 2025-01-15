@@ -1,0 +1,100 @@
+.signup-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5e7eb;
+    margin-top: 2.5rem;
+  }
+  
+  .signup-box {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 75%;
+    max-width: 80rem;
+    display: flex;
+    overflow: hidden;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .signup-left {
+    width: 30%;
+    background-color: #f9fafb;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .signup-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+  
+  .signup-description {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+  
+  .signup-image {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .signup-right {
+    width: 70%;
+    padding: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 1.5rem;
+  }
+
+  .mission h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+  }
+
+  .mission p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .contact h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    margin: 2rem 0 1rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .signup-left {
+      display: none; 
+    }
+
+    .signup-right {
+      width: 100%; 
+    }
+
+    .signup-title {
+      display: block; 
+    }
+
+    .signup-box {
+      width: 75%; 
+    }
+  }
+
+
+  
