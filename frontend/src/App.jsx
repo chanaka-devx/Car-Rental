@@ -14,6 +14,10 @@ import Dashboard from './Pages/Dashboard.jsx';
 import About from './Pages/About.jsx';
 import Privacy from './Pages/Privacy.jsx';
 import Terms from './Pages/Terms.jsx';
+import Booking from './Pages/Booking.jsx';
+import Appoinments from './Pages/Appoinments.jsx';
+import AdminDashboard from './Pages/AdminDashboard.jsx';
+import FAQ from './Pages/FAQ.jsx';
 
 function App() {
   return (
@@ -26,12 +30,13 @@ function App() {
           <Route path='/car' element ={<Car/>}/>
           <Route path='/about' element ={<About/>}/>
           <Route path='/privacy' element ={<Privacy/>}/>
+          <Route path='/faq' element ={<FAQ/>}/>
           <Route path='/terms&conditions' element ={<Terms/>}/>
           <Route
             path="/dashboard"
             element={
               <PrivateRoute>
-                <Dashboard />
+                <AdminDashboard />
               </PrivateRoute>
             }
           />
@@ -40,6 +45,30 @@ function App() {
             element={
               <PrivateRoute>
                 <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/booking/:carId"
+            element={
+              <PrivateRoute>
+                <Booking />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/appoinments"
+            element={
+              <PrivateRoute>
+                <Appoinments/>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin-dashboard"
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
               </PrivateRoute>
             }
           />

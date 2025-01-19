@@ -14,7 +14,6 @@ const Home = () => {
       <Navbar />
       <Start/>
       <Description/>
-      <Ecosystem/>
       <Features/>
       <Rides/>
       <Footer/>

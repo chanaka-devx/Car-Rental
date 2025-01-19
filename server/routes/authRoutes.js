@@ -74,6 +74,7 @@ router.post('/login', async (req, res) => {
       success: true,
       message: "Login successful.",
       token,
+      role : user.Role
     });
   } catch (err) {
     console.error("Error in /login:", err);

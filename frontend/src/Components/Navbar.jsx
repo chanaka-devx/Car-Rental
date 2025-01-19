@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RentRide from '../../src/Images/logo3.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom'; // Added useLocation
 import './Navbar.css';
 
 const Navbar = () => {
@@ -9,6 +9,7 @@ const Navbar = () => {
   // Check token in localStorage
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const location = useLocation(); // Get the current path
 
   // Handler to remove token and redirect
   const handleLogout = () => {
@@ -29,24 +30,43 @@ const Navbar = () => {
 
         <ul className="menu">
           <li>
-            <a href="#list-your-vehicle" className="menu-item">
-              List Your Vehicle
+            <a
+              href="/"
+              className={`menu-item ${location.pathname === '/' ? 'active' : ''}`}
+            >
+              Home
             </a>
           </li>
           <li>
             {token ? (
-              <button className="menu-item" onClick={() => navigate("/profile")}>Profile</button>
+              <button
+                className={`menu-item ${location.pathname === '/profile' ? 'active' : ''}`}
+                onClick={() => navigate("/profile")}
+              >
+                Profile
+              </button>
             ) : (
-              <button className="menu-item" onClick={() => navigate("/register")}>SignUp</button>
+              <button
+                className={`menu-item ${location.pathname === '/register' ? 'active' : ''}`}
+                onClick={() => navigate("/register")}
+              >
+                SignUp
+              </button>
             )}
           </li>
           <li>
-            <a href="#blog" className="menu-item">
+            <a
+              href="#blog"
+              className={`menu-item ${location.hash === '#blog' ? 'active' : ''}`}
+            >
               Blog
             </a>
           </li>
           <li>
-            <a href="#faq" className="menu-item">
+            <a
+              href="/faq"
+              className={`menu-item ${location.pathname === '/faq' ? 'active' : ''}`}
+            >
               FAQ
             </a>
           </li>
@@ -56,7 +76,12 @@ const Navbar = () => {
           {token ? (
             <button className="login-btn" onClick={handleLogout}>Logout</button>
           ) : (
-            <button className="login-btn" onClick={() => navigate("/login")}>Login</button>
+            <button
+              className={`login-btn ${location.pathname === '/login' ? 'active' : ''}`}
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
           )}
         </div>
 
@@ -86,27 +111,52 @@ const Navbar = () => {
       >
         <ul className="mobile-menu-list">
           <li>
-            <a href="#list-your-vehicle" className="mobile-menu-item">
+            <a
+              href="#list-your-vehicle"
+              className={`mobile-menu-item ${
+                location.hash === '#list-your-vehicle' ? 'active' : ''
+              }`}
+            >
               List Your Vehicle
             </a>
           </li>
           <li>
-            <Link to="signup" className="mobile-menu-item">
+            <Link
+              to="signup"
+              className={`mobile-menu-item ${
+                location.pathname === '/signup' ? 'active' : ''
+              }`}
+            >
               Sign Up
             </Link>
           </li>
           <li>
-            <a href="/about" className="mobile-menu-item">
+            <a
+              href="/about"
+              className={`mobile-menu-item ${
+                location.pathname === '/about' ? 'active' : ''
+              }`}
+            >
               Blog
             </a>
           </li>
           <li>
-            <a href="#faq" className="mobile-menu-item">
+            <a
+              href="#faq"
+              className={`mobile-menu-item ${
+                location.hash === '#faq' ? 'active' : ''
+              }`}
+            >
               FAQ
             </a>
           </li>
           <li>
-            <Link to="Login" className="mobile-login-btn">
+            <Link
+              to="Login"
+              className={`mobile-login-btn ${
+                location.pathname === '/login' ? 'active' : ''
+              }`}
+            >
               Login
             </Link>
           </li>

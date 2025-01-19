@@ -6,27 +6,39 @@ import Footer from "../Components/Footer.jsx";
 import "./UpdateCar.css";
 
 const UpdateCar = () => {
-  const [brand, setBrand] = useState('');
-  const [model, setModel] = useState('');
-  const [vnumber, setVnumber] = useState('');
-  const [color, setColor] = useState('');
-  const [yom, setYom] = useState('');
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
+  const [vnumber, setVnumber] = useState("");
+  const [color, setColor] = useState("");
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.put('http://localhost:8081/update/' + id, { brand, model, vnumber, color, yom })
-      .then(res => {
-        console.log('Response from server:', res.data);
-        navigate('/');
+    axios
+      .put("http://localhost:5176/update/" + id, {
+        brand,
+        model,
+        vnumber,
+        color,
+        location,
+        price,
+
       })
-      .catch(err => console.log(err));
+      .then((res) => {
+        console.log("Response from server:", res.data);
+        navigate("/car");
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
     <div>
-      <div><Navbar /></div>
+      <div>
+        <Navbar />
+      </div>
       <div className="update-car-container">
         <div className="form-container">
           <form onSubmit={handleSubmit}>
@@ -38,7 +50,7 @@ const UpdateCar = () => {
                 type="text"
                 id="brand"
                 placeholder="Enter Brand"
-                onChange={e => setBrand(e.target.value)}
+                onChange={(e) => setBrand(e.target.value)}
                 value={brand}
               />
             </div>
@@ -49,7 +61,7 @@ const UpdateCar = () => {
                 type="text"
                 id="model"
                 placeholder="Enter Model"
-                onChange={e => setModel(e.target.value)}
+                onChange={(e) => setModel(e.target.value)}
                 value={model}
               />
             </div>
@@ -60,7 +72,7 @@ const UpdateCar = () => {
                 type="text"
                 id="vnumber"
                 placeholder="Enter Vehicle Number"
-                onChange={e => setVnumber(e.target.value)}
+                onChange={(e) => setVnumber(e.target.value)}
                 value={vnumber}
               />
             </div>
@@ -71,27 +83,43 @@ const UpdateCar = () => {
                 type="text"
                 id="color"
                 placeholder="Enter Color"
-                onChange={e => setColor(e.target.value)}
+                onChange={(e) => setColor(e.target.value)}
                 value={color}
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="yom">Year of Manufacture (YOM)</label>
+              <label htmlFor="yom">Location</label>
               <input
-                type="text"
-                id="yom"
-                placeholder="Enter Year of Manufacture"
-                onChange={e => setYom(e.target.value)}
-                value={yom}
+                type="location"
+                id="location"
+                name="location"
+                placeholder="Enter Location"
+                onChange={(e) => setLocation(e.target.value)}
+                required
               />
             </div>
 
-            <button type="submit" className="submit-button">Update</button>
+            <div className="form-group">
+              <label htmlFor="yom">Price</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                placeholder="Enter Price"
+                onChange={(e) => setPrice(e.target.value)}
+                required
+              />
+            </div>
+
+
+            <button type="submit" className="submit-button">
+              Update
+            </button>
           </form>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

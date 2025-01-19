@@ -14,7 +14,7 @@ const Profile = () => {
   // Fetch user data from the database
   useEffect(() => {
     axios
-      .get('http://localhost:3003/') // Ensure this endpoint returns user data
+      .get('http://localhost:5176/') // Ensure this endpoint returns user data
       .then((res) => {
         if (res.data) {
           setUser({

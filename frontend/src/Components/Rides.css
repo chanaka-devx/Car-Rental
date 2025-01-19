@@ -110,7 +110,7 @@
   .book-now {
     display: block;
     width: 100%;
-    background-color: #3b82f6;
+    background-color: #001f2b;
     color: #fff;
     border: none;
     padding: 10px;
@@ -121,7 +121,7 @@
   }
   
   .book-now:hover {
-    background-color: #2563eb;
+    background-color: #000;
   }
   
   /* Scrollbar styling */

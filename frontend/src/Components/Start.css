@@ -46,6 +46,7 @@
     font-weight: 600;
     color: white;
     margin-bottom: 0.5rem;
+    text-shadow: '2px 2px 4px rgba(0, 0, 0, 0.5)';
 }
 
 .dialog-field input, 
@@ -55,6 +56,10 @@
     border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     font-size: 1rem;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .dialog-button-container {

@@ -31,7 +31,15 @@
   margin-left: 2rem;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
-  font-size: large;
+  font-size: medium;
+}
+
+.menu-item.active,
+.mobile-menu-item.active,
+.login-btn.active {
+  color: #007bff; /* Highlighted color */
+  font-weight: bold; /* Optional: Make it bold */
+  border-bottom: 2px solid #007bff; /* Optional: Add a border */
 }
 
 .menu-item:hover {
@@ -43,8 +51,8 @@
 }
 
 .login-btn {
-  background: linear-gradient(to right, #3b82f6, #10b981);
-  color: white;
+  background: #fff;
+  color: #000;
   font-weight: 600;
   padding: 0.7rem 2rem;
   border-radius: 9999px;
@@ -53,7 +61,8 @@
 }
 
 .login-btn:hover {
-  background: linear-gradient(to right, #2563eb, #059669);
+  background: 	#009bd6;
+  color: #fff;
 }
 
 .mobile-menu-toggle {
@@ -105,8 +114,8 @@
 }
 
 .mobile-login-btn {
-  background: linear-gradient(to right, #3b82f6, #10b981);
-  color: white;
+  background: #fff;
+  color: #000;
   font-weight: 600;
   padding: 0.5rem 2rem ;
   border-radius: 9999px;
@@ -116,7 +125,7 @@
 }
 
 .mobile-login-btn:hover {
-  background: linear-gradient(to right, #2563eb, #059669);
+  background: #2563eb;
 }
 
 /* Responsive styles */

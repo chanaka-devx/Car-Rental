@@ -13,7 +13,8 @@ import { fileURLToPath } from 'url';
 import { Dropbox } from 'dropbox';
 import { v4 as uuidv4 } from 'uuid';
 import usersRoute from "./routes/usersRoute.js"; 
-
+import bodyParser from 'body-parser';
+import bookRouter from './routes/bookRoutes.js';
 
 dotenv.config();
 
@@ -27,6 +28,8 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 app.use("/users", usersRoute);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configure Multer for image uploads
 const uploadDir = path.join(process.cwd(), 'uploads');
@@ -52,8 +55,33 @@ app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/cars', carRoutes);
+app.use('/books', bookRouter);
+
+//------------------------------------------------------------------------------------------------------------------------------
 
 
+//search results
+app.post('/search', (req, res) => {
+  console.log('Request received:', req.body);
+  const location = req.body.location;
+
+  const db =  connectToDatabase();
+  const sql = 'SELECT * FROM cars WHERE `Location` = ?';
+  db.query(sql, [location], (err, results) => {
+
+    if (err) {
+      console.error('Error querying the database:', err);
+      res.status(500).send('Database query error');
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+
+//Fetch car details
 app.get('/', async (req, res) => {
   try {
     const db = await connectToDatabase();
@@ -106,6 +134,7 @@ app.get('/', async (req, res) => {
   }
 });
 
+//----------------------------------------------------------------------------
 
 
 // Create a new car with image upload
@@ -115,7 +144,7 @@ app.post('/create', upload.single('image'), async (req, res) => {
     console.log("Request body:", req.body);
     console.log("Uploaded file:", req.file);
 
-    const { brand, model, vnumber, color, yom, price } = req.body;
+    const { brand, model, vnumber, color, location, price } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ success: false, message: 'No image uploaded.' });
@@ -136,13 +165,13 @@ app.post('/create', upload.single('image'), async (req, res) => {
 
     // Save car data to database
     const db = await connectToDatabase();
-    const sql = "INSERT INTO cars (`Brand`, `Model`, `Number`, `Color`, `YOM`, `Price`, `Image`) VALUES (?, ?, ?, ?, ?, ? , ?)";
-    await db.query(sql, [brand, model, vnumber, color, yom, price, dropboxPath]);
+    const sql = "INSERT INTO cars (`Brand`, `Model`, `Number`, `Color`, `Location`, `Price`, `Image`) VALUES (?, ?, ?, ?, ?, ? , ?)";
+    await db.query(sql, [brand, model, vnumber, color, location, price, dropboxPath]);
 
     res.status(201).json({
       success: true,
       message: 'Car created successfully!',
-      data: { brand, model, vnumber, color, yom, price, image: dropboxPath },
+      data: { brand, model, vnumber, color, location, price, image: dropboxPath },
     });
   } catch (err) {
     console.error('Error uploading to Dropbox:', err);
@@ -150,16 +179,16 @@ app.post('/create', upload.single('image'), async (req, res) => {
   }
 });
 
-
+//----------------------------------------------------------------------------
 
 // Update an existing car
 app.put('/update/:id', async (req, res) => {
-  const { brand, model, vnumber, color, yom, price } = req.body;
+  const { brand, model, vnumber, color, location, price} = req.body;
   const id = req.params.id;
   try {
     const db = await connectToDatabase();
-    const sql = "UPDATE cars SET `Brand` = ?, `Model` = ?, `Number` = ?, `Color` = ?, `YOM` = ? WHERE `ID` = ?";
-    const [result] = await db.query(sql, [brand, model, vnumber, color, yom, price, id]);
+    const sql = "UPDATE cars SET `Brand` = ?, `Model` = ?, `Number` = ?, `Color` = ?, `Location` = ?, `Price` = ? WHERE `ID` = ?";
+    const [result] = await db.query(sql, [brand, model, vnumber, color, location, price, id]);
     return res.json({ success: true, data: result });
   } catch (err) {
     console.error(err);
@@ -168,10 +197,11 @@ app.put('/update/:id', async (req, res) => {
 });
 
 
+//----------------------------------------------------------------------------
 
 // Delete a car
 app.delete('/car/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id.trim();
   try {
     const db = await connectToDatabase();
     const sql = "DELETE FROM cars WHERE ID = ?";
@@ -183,9 +213,107 @@ app.delete('/car/:id', async (req, res) => {
   }
 });
 
+//------------------------------------------------------------------------------------------------------------------------------
 
-// Start server on PORT from .env (fallback to 3003 if not set)
-const PORT = process.env.PORT || 3003;
+
+// Book a car
+app.post('/booking', async (req, res) => {
+  const { car_id, user_name, user_email, user_phone, booking_date, booking_time } = req.body;
+
+  // Validate required fields
+  if (!car_id || !user_name || !user_email || !user_phone || !booking_date || !booking_time) {
+    return res.status(400).json({ success: false, message: 'All fields are required.' });
+  }
+
+  try {
+    const db = await connectToDatabase();
+    
+    const sql = `
+      INSERT INTO bookings (car_id, user_name, user_email, user_phone, booking_date, booking_time)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `;
+    const [result] = await db.query(sql, [
+      car_id,
+      user_name,
+      user_email,
+      user_phone,
+      booking_date,
+      booking_time,
+    ]);
+
+    res.status(201).json({
+      success: true,
+      message: 'Booking created successfully!',
+      booking_id: result.insertId,
+    });
+  } catch (err) {
+    console.error('Unable to book:', err);
+    res.status(500).json({ success: false, message: 'Error creating booking.' });
+  }
+});
+
+
+//------------------------------------------------------------------------------------
+
+//Fetch all bookings
+app.get('/bookings', async (req, res) => {
+  try {
+    const db = await connectToDatabase();
+    const [rows] = await db.query('SELECT * FROM bookings');
+    res.status(200).json({ success: true, data: rows });
+  } catch (err) {
+    console.error('Error fetching bookings:', err);
+    res.status(500).json({ success: false, message: 'Error fetching bookings.' });
+  }
+});
+
+//------------------------------------------------------------------------------------
+
+// Delete a booking by ID
+app.delete('/bookings/:id', async (req, res) => {
+  const bookingId = req.params.id;
+
+  try {
+    const db = await connectToDatabase();
+    const sql = 'DELETE FROM bookings WHERE id = ?';
+    const [result] = await db.query(sql, [bookingId]);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ success: false, message: 'Booking not found.' });
+    }
+
+    res.status(200).json({ success: true, message: 'Booking deleted successfully!' });
+  } catch (err) {
+    console.error('Error deleting booking:', err);
+    res.status(500).json({ success: false, message: 'Error deleting booking.' });
+  }
+});
+
+//------------------------------------------------------------------------------------
+
+//Checking booking status
+app.get('/bookings/status/:car_id', async (req, res) => {
+  const carId = req.params.car_id;
+
+  try {
+    const db = await connectToDatabase();
+    const [rows] = await db.query('SELECT * FROM bookings WHERE car_id = ?', [carId]);
+
+    if (rows.length > 0) {
+      return res.status(200).json({ success: true, booked: true, message: 'Car is already booked.' });
+    } else {
+      return res.status(200).json({ success: true, booked: false, message: 'Car is available for booking.' });
+    }
+  } catch (err) {
+    console.error('Error checking booking status:', err);
+    res.status(500).json({ success: false, message: 'Error checking booking status.' });
+  }
+});
+
+
+
+// Start server on PORT from .env (fallback to 5176 if not set)
+const PORT = process.env.PORT || 5176;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

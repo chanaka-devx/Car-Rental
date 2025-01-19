@@ -23,7 +23,7 @@ const CreateCar = () => {
         const formData = new FormData(event.target); // Automatically gets all form fields
 
         try {
-            const response = await fetch("http://localhost:3003/create", {
+            const response = await fetch("http://localhost:5176/create", {
                 method: "POST",
                 body: formData,
             });
@@ -96,12 +96,12 @@ const CreateCar = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="yom">Year of Manufacture (YOM)</label>
+                            <label htmlFor="yom">Location</label>
                             <input
-                                type="number"
-                                id="yom"
-                                name="yom"
-                                placeholder="Enter Year of Manufacture"
+                                type="location"
+                                id="location"
+                                name="location"
+                                placeholder="Enter Location"
                                 required
                             />
                         </div>

@@ -28,7 +28,7 @@ const Register = () => {
     try {
       console.log("Submitting form with values:", values); // Debugging log
       const response = await axios.post(
-        "http://localhost:3003/auth/register",
+        "http://localhost:5176/auth/register",
         values
       );
       console.log("Response from server:", response.data);

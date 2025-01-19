@@ -32,23 +32,24 @@ const Login = () => {
     try {
       console.log("Submitting login with values:", values); // Debugging log
       const response = await axios.post(
-        "http://localhost:3003/auth/login",
+        "http://localhost:5176/auth/login",
         values
       );
       console.log("Response from server:", response.data);
 
       // 2) Get token from response
       const { token } = response.data;
+      const { role } = response.data;
 
       // 3) Store token in localStorage
       localStorage.setItem('token', token);
 
       // 4) Decode token to check role
-      const decoded = jwtDecode(token);
-      const userRole = decoded.role;
 
-      if (userRole === 'admin') {
-        navigate('/car'); // Admin route
+      console.log(role)
+
+      if (role === 'admin') {
+        navigate('/admin-dashboard'); // Admin route
       } else {
         navigate('/dashboard'); // User route
       }
