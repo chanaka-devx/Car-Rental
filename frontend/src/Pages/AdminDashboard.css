@@ -66,7 +66,12 @@
   
   /* Dashboard Content */
   .dashboard-content {
-    padding: 7rem 2rem 2rem 2rem; 
+    padding: 6rem 2rem 2rem 2rem; 
+  }
+
+  .dashboard-content h1{
+    padding: 0rem 0rem 1rem 0rem; 
+    font-size: 1.5rem;
   }
   
   /* Top Cards Row */

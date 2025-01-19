@@ -68,7 +68,7 @@
   }
   
   .card-content h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #333;
     margin-bottom: 5px;
   }
@@ -77,6 +77,7 @@
     font-size: 0.9rem;
     color: #555;
     margin: 5px 0;
+    text-align: left;
   }
   
   .km {

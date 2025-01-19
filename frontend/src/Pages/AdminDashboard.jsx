@@ -50,6 +50,7 @@ const MuseDashboard = () => {
 
           {/* Dashboard Content */}
           <div className="dashboard-content">
+            <h1>Welcome to Admin Panel</h1>
             {/* Top Cards */}
             <div className="top-cards">
               <div

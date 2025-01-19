@@ -36,7 +36,7 @@ function App() {
             path="/dashboard"
             element={
               <PrivateRoute>
-                <AdminDashboard />
+                <Dashboard />
               </PrivateRoute>
             }
           />

@@ -6,26 +6,43 @@ import "./Profile.css";
 
 const Profile = () => {
   const [user, setUser] = useState({
-    name: "",
-    email: "",
-    mobile: ""
+    Name: "",
+    Email: "",
+    Mobile: ""
   });
+  const [loading, setLoading] = useState(true);
+
+  // Get user ID from localStorage (or another method)
+  const userId = localStorage.getItem("userId"); // Assuming user ID is stored in localStorage
 
   // Fetch user data from the database
   useEffect(() => {
+    if (!userId) {
+      console.error("User ID is not available.");
+      setLoading(false);
+      return;
+    }
+
     axios
-      .get('http://localhost:5176/') // Ensure this endpoint returns user data
+      .get(`http://localhost:5176/api/profile/${userId}`) // Include user ID in the API endpoint
       .then((res) => {
-        if (res.data) {
-          setUser({
-            name: res.data.name || "",
-            email: res.data.email || "",
-            mobile: res.data.mobile || "",
-          });
+        console.log("API Response:", res.data);
+        if (res.data.success && res.data.user) {
+          setUser(res.data.user); // Ensure response structure matches
+        } else {
+          console.error("Failed to fetch user data:", res.data.message);
         }
+        setLoading(false); // Data is loaded
       })
-      .catch((err) => console.error("Error fetching user data:", err));
-  }, []);
+      .catch((err) => {
+        console.error("Error fetching user data:", err);
+        setLoading(false); // Stop loading even on error
+      });
+  }, [userId]);
+
+  if (loading) {
+    return <p>Loading...</p>; // Display loading state
+  }
 
   return (
     <div>
@@ -35,10 +52,10 @@ const Profile = () => {
         <aside className="sidebar">
           <div className="user-info">
             <div className="avatar">
-              {user.name.charAt(0).toUpperCase()}
+              {user.Name ? user.Name.charAt(0).toUpperCase() : ""}
             </div>
-            <h3>{user.name}</h3>
-            <p>{user.email}</p>
+            <h3>{user.Name}</h3>
+            <p>{user.Email}</p>
           </div>
           <nav className="menu">
             <ul>
@@ -69,15 +86,15 @@ const Profile = () => {
             <h3>User Information</h3>
             <div className="info-group">
               <label>Name:</label>
-              <input type="text" value={user.name} readOnly />
+              <input type="text" value={user.Name || ""} readOnly />
             </div>
             <div className="info-group">
               <label>E-mail:</label>
-              <input type="text" value={user.email} readOnly />
+              <input type="text" value={user.Email || ""} readOnly />
             </div>
             <div className="info-group">
               <label>Mobile:</label>
-              <input type="text" value={user.mobile} readOnly />
+              <input type="text" value={user.Mobile || ""} readOnly />
             </div>
             <div className="info-group">
               <label>Driving License / Valid Identification:</label>

@@ -15,6 +15,8 @@ import { v4 as uuidv4 } from 'uuid';
 import usersRoute from "./routes/usersRoute.js"; 
 import bodyParser from 'body-parser';
 import bookRouter from './routes/bookRoutes.js';
+import { v2 as cloudinary } from 'cloudinary';
+
 
 dotenv.config();
 
@@ -87,47 +89,10 @@ app.get('/', async (req, res) => {
     const db = await connectToDatabase();
     const [data] = await db.query("SELECT * FROM cars");
 
-    const carsWithImageURLs = await Promise.all(
-      data.map(async (car) => {
-        try {
-          // Generate a unique ID for the file
-          const uniqueId = uuidv4();
-          let filePath = car.Image;
+    console.log(data);
 
-          // Ensure the file path starts with "/CarRental/" and append the unique ID
-          if (!filePath.startsWith('/CarRental')) {
-            filePath = `/CarRental${uniqueId}_${filePath}`;
-          }
+    res.json(data);
 
-          console.log(`Processing filePath: ${filePath}`);
-
-          let rawLink;
-
-          // Check if a shared link already exists
-          const existingLinksResponse = await dropbox.sharingListSharedLinks({
-            path: filePath,
-          });
-
-          if (existingLinksResponse.result.links.length > 0) {
-            // Use the existing shared link
-            rawLink = existingLinksResponse.result.links[0].url.replace('?dl=0', '?raw=1');
-          } else {
-            // Create a new shared link
-            const sharedLinkResponse = await dropbox.sharingCreateSharedLinkWithSettings({
-              path: filePath,
-            });
-            rawLink = sharedLinkResponse.result.url.replace('?dl=0', '?raw=1');
-          }
-
-          return { ...car, Image: rawLink }; // Attach the raw link to the car object
-        } catch (err) {
-          console.error(`Error processing filePath ${car.Image}:`, err);
-          return { ...car, Image: null }; // Fallback if link generation fails
-        }
-      })
-    );
-
-    res.json(carsWithImageURLs); // Send the processed car data
   } catch (err) {
     console.error("Error fetching cars:", err);
     res.status(500).json({ success: false, message: "Error fetching cars." });
@@ -138,8 +103,15 @@ app.get('/', async (req, res) => {
 
 
 // Create a new car with image upload
-app.post('/create', upload.single('image'), async (req, res) => {
 
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: "dhbormcgi",
+  api_key: "747529268123495",
+  api_secret: "e-imcDaPM2qa7rDbYHeERv6o6R8",
+});
+
+app.post('/create', upload.single('image'), async (req, res) => {
   try {
     console.log("Request body:", req.body);
     console.log("Uploaded file:", req.file);
@@ -150,14 +122,10 @@ app.post('/create', upload.single('image'), async (req, res) => {
       return res.status(400).json({ success: false, message: 'No image uploaded.' });
     }
 
+    // Upload image to Cloudinary
     const filePath = req.file.path; // Temporary file path
-    const dropboxPath = `/CarRental/${req.file.filename}`; // Path in Dropbox
-
-    // Read file and upload to Dropbox
-    const fileContent = fs.readFileSync(filePath);
-    await dropbox.filesUpload({
-      path: dropboxPath,
-      contents: fileContent,
+    const cloudinaryResponse = await cloudinary.uploader.upload(filePath, {
+      folder: 'CarRental', // Specify the folder in Cloudinary
     });
 
     // Clean up temporary file
@@ -166,15 +134,23 @@ app.post('/create', upload.single('image'), async (req, res) => {
     // Save car data to database
     const db = await connectToDatabase();
     const sql = "INSERT INTO cars (`Brand`, `Model`, `Number`, `Color`, `Location`, `Price`, `Image`) VALUES (?, ?, ?, ?, ?, ? , ?)";
-    await db.query(sql, [brand, model, vnumber, color, location, price, dropboxPath]);
+    await db.query(sql, [brand, model, vnumber, color, location, price, cloudinaryResponse.secure_url]);
 
     res.status(201).json({
       success: true,
       message: 'Car created successfully!',
-      data: { brand, model, vnumber, color, location, price, image: dropboxPath },
+      data: { 
+        brand, 
+        model, 
+        vnumber, 
+        color, 
+        location, 
+        price, 
+        image: cloudinaryResponse.secure_url 
+      },
     });
   } catch (err) {
-    console.error('Error uploading to Dropbox:', err);
+    console.error('Error uploading to Cloudinary:', err);
     res.status(500).json({ success: false, message: 'Error uploading car.' });
   }
 });
@@ -309,6 +285,63 @@ app.get('/bookings/status/:car_id', async (req, res) => {
     res.status(500).json({ success: false, message: 'Error checking booking status.' });
   }
 });
+
+
+
+//------------------------------------------------------------------------------------
+
+
+// Fetch all cars on rides page
+app.get('/api/cars', async (req, res) => {
+  try {
+    const db = await connectToDatabase();
+    const sql = "SELECT * FROM cars";
+    const [cars] = await db.query(sql);
+
+    res.status(200).json({
+      success: true,
+      cars,
+    });
+  } catch (error) {
+    console.error('Error fetching cars:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch cars.',
+    });
+  }
+});
+
+
+//------------------------------------------------------------------------------------
+
+//Fetching users
+app.get('/api/profile/:userId', async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const db = await connectToDatabase();
+    const sql = "SELECT Name, Email, Mobile FROM users WHERE ID = ?";
+    const [user] = await db.query(sql, [userId]);
+
+    if (user.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found."
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      user: user[0]
+    });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch user data."
+    });
+  }
+});
+
 
 
 
