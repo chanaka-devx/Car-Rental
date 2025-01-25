@@ -52,7 +52,8 @@ const Appointments = () => {
       <Navbar />
       <div className="appointments-container">
         <div className="appointments-content">
-          <div className="header">List of Appointments</div>
+          <div className="header"><h3><a href="/admin-dashboard">Back to Dashboard</a></h3>List of Bookings</div>
+          
           <div className="card-grid">
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (

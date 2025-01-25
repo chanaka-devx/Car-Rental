@@ -52,10 +52,10 @@ function Car() {
       <Navbar />
       <div className="car-container">
         <div className="car-content">
-          <div className="header">List of Cars</div>
+        <div className="header"><h3><a href="/admin-dashboard">Back to Dashboard</a></h3>List of Cars</div>
           <div className="add-button-container">
             <Link to="/create" className="add-button">
-              Add +
+              Add New
             </Link>
           </div>
           <div className="card-grid">
