@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./Booking.css";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import axios from "axios";
 
 const Booking = () => {
   const { carId } = useParams();
@@ -21,16 +22,16 @@ const Booking = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Fetch car details from the backend (example hardcoded here)
+    // Fetch car details from the backend using carId
     const fetchCar = async () => {
-      const carData = {
-        id: 1,
-        name: "Suzuki Alto",
-        location: "Nugegoda",
-        price: 6500,
-        max_km: 100,
-      };
-      setCar(carData);
+      try {
+        const response = await axios.get(`http://localhost:5176/cars/${carId}`);
+        console.log("Car details:", response.data);
+        setCar(response.data);
+      } catch (err) {
+        console.error("Error fetching car details:", err);
+        setCar(null);
+      }
     };
 
     fetchCar();
@@ -57,7 +58,7 @@ const Booking = () => {
     })
       .then((response) => {
         if (response.ok) {
-          return response.json(); // Add this line to parse the response body
+          return response.json(); 
         } else {
           throw new Error("Failed to book the car.");
         }
@@ -83,22 +84,18 @@ const Booking = () => {
             <h2 className="booking-title">Book Your Car</h2>
             <p className="booking-description">
               Complete the form below to confirm your booking for the{" "}
-              <strong>{car.name}</strong>.
+              <strong>{car.Brand} {car.Model}</strong>.
             </p>
             <img
-              src={car.image || "https://via.placeholder.com/400"}
-              alt={car.name || "Car"}
+              src={car.Image || "/placeholder-image.png"}
+              alt={`${car.Brand} ${car.Model}`}
               className="booking-image"
             />
           </div>
           <div className="booking-right">
             <form onSubmit={handleSubmit}>
-              {/* Success Message */}
               {success && <div className="success-message">{success}</div>}
-
-              {/* Error Message */}
               {error && <div className="error-message">{error}</div>}
-
               <div className="form-group">
                 <label className="form-label" htmlFor="user_name">
                   Name:
@@ -144,7 +141,7 @@ const Booking = () => {
                   />
                 </label>
                 <br />
-                <label className="form-label" htmlFor="booking_date">
+                <label className="form-label" htmlFor="booking_time">
                   Booking Time:
                   <input
                     type="time"

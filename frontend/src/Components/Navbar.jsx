@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import RentRide from '../../src/Images/logo3.png';
-import { Link, useNavigate, useLocation } from 'react-router-dom'; // Added useLocation
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'; // Added useLocation
 import './Navbar.css';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { userId } = useParams();
+  const [user, setUser] = useState({
+      Name: "",
+      Email: "",
+      Mobile: "",
+    });
 
   // Check token in localStorage
   const token = localStorage.getItem("token");
@@ -39,12 +45,14 @@ const Navbar = () => {
           </li>
           <li>
             {token ? (
-              <button
-                className={`menu-item ${location.pathname === '/profile' ? 'active' : ''}`}
-                onClick={() => navigate("/profile")}
-              >
-                Profile
-              </button>
+            <button
+              className={`menu-item ${location.pathname.startsWith('/profile') ? 'active' : ''}`}
+              onClick={() => navigate(`/profile/${userId}`)}
+              disabled={!userId} 
+            >
+              Profile
+            </button>
+            
             ) : (
               <button
                 className={`menu-item ${location.pathname === '/register' ? 'active' : ''}`}
@@ -112,54 +120,48 @@ const Navbar = () => {
         <ul className="mobile-menu-list">
           <li>
             <a
-              href="#list-your-vehicle"
-              className={`mobile-menu-item ${
-                location.hash === '#list-your-vehicle' ? 'active' : ''
-              }`}
+              href="/"
+              className={`mobile-menu-item ${location.pathname === '/' ? 'active' : ''}`}
             >
-              List Your Vehicle
+              Home
             </a>
           </li>
           <li>
-            <Link
-              to="signup"
-              className={`mobile-menu-item ${
-                location.pathname === '/signup' ? 'active' : ''
-              }`}
-            >
-              Sign Up
-            </Link>
+              <button
+                className={`mobile-menu-item ${location.pathname === '/register' ? 'active' : ''}`}
+                onClick={() => navigate("/register")}
+              >
+                SignUp
+              </button>
           </li>
           <li>
-            <a
-              href="/about"
-              className={`mobile-menu-item ${
-                location.pathname === '/about' ? 'active' : ''
-              }`}
+          <a
+              href="#blog"
+              className={`mobile-menu-item ${location.hash === '#blog' ? 'active' : ''}`}
             >
               Blog
             </a>
           </li>
           <li>
             <a
-              href="#faq"
-              className={`mobile-menu-item ${
-                location.hash === '#faq' ? 'active' : ''
-              }`}
+              href="/faq"
+              className={`mobile-menu-item ${location.pathname === '/faq' ? 'active' : ''}`}
             >
               FAQ
             </a>
           </li>
-          <li>
-            <Link
-              to="Login"
-              className={`mobile-login-btn ${
-                location.pathname === '/login' ? 'active' : ''
-              }`}
-            >
-              Login
-            </Link>
-          </li>
+            <div>
+            {token ? (
+              <button className="mobile-login-btn" onClick={handleLogout}>Logout</button>
+            ) : (
+              <button
+                className={`login-btn ${location.pathname === '/login' ? 'active' : ''}`}
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+            )}
+          </div>
         </ul>
       </div>
     </nav>

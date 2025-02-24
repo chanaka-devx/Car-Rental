@@ -99,10 +99,10 @@
   }
 
   .small-card-b:hover {
-    background-color: #555; /* Darker shade of gray */
-    transform: translateY(-5px); /* Slight lift effect */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    cursor: pointer; /* Change cursor to pointer */
+    background-color: #fff; 
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
   }
   
   .card-title {

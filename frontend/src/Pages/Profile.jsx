@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer.jsx';
 import "./Profile.css";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  
   const [user, setUser] = useState({
     Name: "",
     Email: "",
-    Mobile: ""
+    Mobile: "",
   });
   const [loading, setLoading] = useState(true);
 
-  // Get user ID from localStorage (or another method)
-  const userId = localStorage.getItem("userId"); // Assuming user ID is stored in localStorage
+  // Get user ID from localStorage
+  const userId = localStorage.getItem("userId");
 
   // Fetch user data from the database
   useEffect(() => {
@@ -28,7 +31,8 @@ const Profile = () => {
       .then((res) => {
         console.log("API Response:", res.data);
         if (res.data.success && res.data.user) {
-          setUser(res.data.user); // Ensure response structure matches
+          setUser(res.data.user);
+          navigate(`/profile/${userId}`); // Ensure response structure matches
         } else {
           console.error("Failed to fetch user data:", res.data.message);
         }

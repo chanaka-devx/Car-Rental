@@ -1,8 +1,13 @@
 import React from 'react';
 import './Description.css';
 import Car from '../Images/img-1.jpg';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Description = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+
   return (
     <div className="rental-container">
       <div className="rental-content">
@@ -21,7 +26,12 @@ const Description = () => {
           With our easy-to-use platform, getting in control of your finances has never been simpler - what 
           are you waiting for?
         </p>
-        <button className="register-button">Register</button>
+        <button
+                className={`register-button ${location.pathname === '/register' ? 'active' : ''}`}
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
       </div>
       <div className="rental-image">
         <img src={Car} alt="Car in sunset" />

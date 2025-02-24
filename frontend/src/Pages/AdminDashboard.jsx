@@ -18,12 +18,12 @@ const MuseDashboard = () => {
   const navigate = useNavigate();
 
   const progressData = [
-    { month: "Jan", bookings: 120, revenue: 8000 },
-    { month: "Feb", bookings: 150, revenue: 12000 },
-    { month: "Mar", bookings: 180, revenue: 15000 },
-    { month: "Apr", bookings: 200, revenue: 18000 },
-    { month: "May", bookings: 220, revenue: 20000 },
-    { month: "Jun", bookings: 250, revenue: 25000 },
+    { month: "Jan", bookings: 12, revenue: 8000 },
+    { month: "Feb", bookings: 15, revenue: 12000 },
+    { month: "Mar", bookings: 18, revenue: 15000 },
+    { month: "Apr", bookings: 20, revenue: 18000 },
+    { month: "May", bookings: 22, revenue: 20000 },
+    { month: "Jun", bookings: 25, revenue: 25000 },
   ];
 
   const activeUsersData = [

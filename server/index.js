@@ -63,22 +63,31 @@ app.use('/books', bookRouter);
 
 
 //search results
-app.post('/search', (req, res) => {
+app.post('/search', async (req, res) => {
   console.log('Request received:', req.body);
   const location = req.body.location;
 
-  const db =  connectToDatabase();
-  const sql = 'SELECT * FROM cars WHERE `Location` = ?';
-  db.query(sql, [location], (err, results) => {
+  try {
+    const db = await connectToDatabase(); // Await database connection
+    const sql = 'SELECT * FROM cars WHERE `Location` LIKE ?';
+    const queryParams = [`%${location}%`]; // Use LIKE for partial matching
 
-    if (err) {
-      console.error('Error querying the database:', err);
-      res.status(500).send('Database query error');
-    } else {
-      res.json(results);
-    }
-  });
+    db.query(sql, queryParams, (err, results) => {
+      if (err) {
+        console.error('Error querying the database:', err);
+        res.status(500).json({ success: false, message: 'Database query error' });
+      } else {
+        console.log('Query results:', results);
+        res.status(200).json(results); // Send the results back to the client
+      }
+      db.end(); // Close the database connection
+    });
+  } catch (err) {
+    console.error('Database connection error:', err);
+    res.status(500).json({ success: false, message: 'Database connection error' });
+  }
 });
+
 
 //------------------------------------------------------------------------------------------------------------------------------
 
@@ -98,6 +107,29 @@ app.get('/', async (req, res) => {
     res.status(500).json({ success: false, message: "Error fetching cars." });
   }
 });
+
+
+//-----------------for the booking page----------------------------------
+
+// Get car details by ID
+app.get('/cars/:id', async (req, res) => {
+  const carId = req.params.id;
+  try {
+    const db = await connectToDatabase();
+    const sql = "SELECT * FROM cars WHERE ID = ?";
+    const [rows] = await db.query(sql, [carId]);
+
+    if (rows.length > 0) {
+      res.status(200).json(rows[0]);
+    } else {
+      res.status(404).json({ success: false, message: "Car not found" });
+    }
+  } catch (err) {
+    console.error('Error fetching car details:', err);
+    res.status(500).json({ success: false, message: 'Database error' });
+  }
+});
+
 
 //----------------------------------------------------------------------------
 
@@ -314,33 +346,27 @@ app.get('/api/cars', async (req, res) => {
 
 //------------------------------------------------------------------------------------
 
-//Fetching users
-app.get('/api/profile/:userId', async (req, res) => {
-  const { userId } = req.params;
+
+// Get user profile by ID
+app.get('/api/profile/:id', async (req, res) => {
+  const userId = req.params.id;
   try {
     const db = await connectToDatabase();
-    const sql = "SELECT Name, Email, Mobile FROM users WHERE ID = ?";
-    const [user] = await db.query(sql, [userId]);
+    const sql = "SELECT * FROM users WHERE ID = ?";
+    const [rows] = await db.query(sql, [userId]);
 
-    if (user.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: "User not found."
-      });
+    if (rows.length > 0) {
+      res.status(200).json({ success: true, user: rows[0] });
+    } else {
+      res.status(404).json({ success: false, message: "User not found" });
     }
-
-    res.status(200).json({
-      success: true,
-      user: user[0]
-    });
-  } catch (error) {
-    console.error("Error fetching user data:", error);
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch user data."
-    });
+  } catch (err) {
+    console.error('Error fetching user details:', err);
+    res.status(500).json({ success: false, message: 'Database error' });
   }
 });
+
+
 
 
 

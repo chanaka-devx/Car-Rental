@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #d6f1ff;
+    background-color: #f3f9ff;;
     padding: 5rem 7rem 5rem 7rem ;
     border-radius: 10px;
     font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
-    padding-right: 2rem;
+    padding-right: 0;
   }
   
   .register-button {

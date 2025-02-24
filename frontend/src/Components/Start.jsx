@@ -5,9 +5,12 @@ const Start = () => {
   const [location, setLocation] = useState('');
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleSearch = () => {
     console.log('Searching for location:', location);
+    setLoading(true); // Start loading
+
     fetch('http://localhost:5176/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -22,13 +25,19 @@ const Start = () => {
       })
       .then((data) => {
         console.log('Data received:', data);
-        setResults(data);
+        if (Array.isArray(data)) {
+          setResults(data); // Ensure data is an array before setting it
+        } else {
+          setResults([]);
+        }
         setError('');
+        setLoading(false); // Stop loading
       })
       .catch((err) => {
         console.error('Error occurred:', err);
-        setError('An error occurred while fetching data.');
+        setError('An error occurred while searching for a car.');
         setResults([]);
+        setLoading(false); // Stop loading even on error
       });
   };
   
@@ -39,7 +48,6 @@ const Start = () => {
             <h1>Your Journey starts here</h1>
           </div>
           <div className="dialog-flex">
-            
             <div className="dialog-field">
               <label htmlFor="location">Location</label>
               <input  id="location"
@@ -50,20 +58,27 @@ const Start = () => {
             </div>
           </div>
 
-          
-
           <div className="dialog-button-container">
-          <button onClick={handleSearch} className="dialog-button">Search</button>
-          <div style={{ marginTop: '20px' }}>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {results.length === 0 && !error && <p>No vehicles available for this location.</p>}
-            {results.map((item, index) => (
-              <div key={index} style={{ marginBottom: '10px' }}>
-                <strong>Location:</strong> {item.Location}
-              </div>
-            ))}
+            <button onClick={handleSearch} className="dialog-button">Search</button>
           </div>
-          </div>
+
+          {loading && <p>Loading...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+
+          <ul>
+            {results.length > 0 ? (
+              results.map((car) => (
+                <li key={car.ID}>
+                  <h3>{car.Brand} {car.Model}</h3>
+                  <p>Location: {car.Location}</p>
+                  <p>Price: Rs.{car.Price}.00 / Day</p>
+                  <img src={car.Image} alt={`${car.Brand} ${car.Model}`} style={{ width: '200px' }} />
+                </li>
+              ))
+            ) : (
+              <p>No cars found for this location.</p>
+            )}
+          </ul>
         </div>
       </div>
   );

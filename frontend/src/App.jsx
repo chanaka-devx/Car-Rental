@@ -41,7 +41,7 @@ function App() {
             }
           />
           <Route
-            path="/profile"
+            path="/profile/:userId"
             element={
               <PrivateRoute>
                 <Profile />
@@ -67,7 +67,7 @@ function App() {
           <Route
             path="/admin-dashboard"
             element={
-              <PrivateRoute>
+              <PrivateRoute requiredRole="admin">
                 <AdminDashboard />
               </PrivateRoute>
             }
