@@ -1,0 +1,101 @@
+﻿<Page x:Class="RentRide.AddCarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Add Car Page">
+
+    <Grid Background="#f3f9ff">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <TextBlock Text="Add New Car"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#005c85"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <!-- Brand -->
+            <Grid Margin="0,10">
+                <TextBox x:Name="txtBrand"/>
+                <TextBlock Text="Brand"
+                           IsHitTestVisible="False"
+                           Foreground="Gray"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Opacity="0.5"
+                           Visibility="{Binding Text, ElementName=txtBrand, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <!-- Model -->
+            <Grid Margin="0,10">
+                <TextBox x:Name="txtModel"/>
+                <TextBlock Text="Model"
+                           IsHitTestVisible="False"
+                           Foreground="Gray"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Opacity="0.5"
+                           Visibility="{Binding Text, ElementName=txtModel, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <!-- Vehicle Number -->
+            <Grid Margin="0,10">
+                <TextBox x:Name="txtVNumber"/>
+                <TextBlock Text="Vehicle Number"
+                           IsHitTestVisible="False"
+                           Foreground="Gray"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Opacity="0.5"
+                           Visibility="{Binding Text, ElementName=txtVNumber, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <!-- Color -->
+            <Grid Margin="0,10">
+                <TextBox x:Name="txtColor"/>
+                <TextBlock Text="Color"
+                           IsHitTestVisible="False"
+                           Foreground="Gray"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Opacity="0.5"
+                           Visibility="{Binding Text, ElementName=txtColor, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <!-- Location -->
+            <Grid Margin="0,10">
+                <TextBox x:Name="txtLocation"/>
+                <TextBlock Text="Location"
+                           IsHitTestVisible="False"
+                           Foreground="Gray"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Opacity="0.5"
+                           Visibility="{Binding Text, ElementName=txtLocation, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <!-- Price -->
+            <Grid Margin="0,10">
+                <TextBox x:Name="txtPrice"/>
+                <TextBlock Text="Price"
+                           IsHitTestVisible="False"
+                           Foreground="Gray"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Opacity="0.5"
+                           Visibility="{Binding Text, ElementName=txtPrice, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <Button Content="Choose Image" 
+                    Click="ChooseImage_Click"
+                    Background="#007bff" 
+                    Foreground="White"
+                    Margin="0,10"/>
+            <Image x:Name="imgPreview" Height="150" Width="150" Margin="0,10"/>
+
+            <Button Content="Save Car" 
+                    Click="SaveCar_Click"
+                    Background="#28a745" 
+                    Foreground="White"
+                    Margin="0,10"/>
+        </StackPanel>
+    </Grid>
+</Page>

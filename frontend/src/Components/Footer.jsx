@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>Email: support@rentride.com</p>
+          <p>Email: support@rentride.lk</p>
           <p>Phone: +1 (123) 456-7890</p>
         </div>
         <div className="footer-section">
@@ -30,8 +30,8 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
       <p>
-            copyright © 2025 <a href="https://RentRide.com" >RentRide  </a> 
-            | developing by <a href="https://lankanrentals.com" >  Chanaka Malawige</a>
+            copyright © 2025 <a href="https://RentRide.lk" >RentRide  </a> 
+            | developing by <a href="https://www.facebook.com/chanaka.malawige/" >  Chanaka Malawige</a>
             </p>
       </div>
     </footer>
