@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\App.xaml
-2-1611855234
+7-718473609
 
-9-1104340256
-213-1944339405
-AddCarPage.xaml;MainWindow.xaml;
+15-917415269
+213173186665
+AddCarPage.xaml;BookingsPage.xaml;CarListPage.xaml;DashboardPage.xaml;Login.xaml;MainWindow.xaml;UpdateCarPage.xaml;
 
 False
 

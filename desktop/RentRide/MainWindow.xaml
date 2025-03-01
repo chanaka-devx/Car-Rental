@@ -8,7 +8,6 @@
 
 
     <Grid Margin="10">
-        <!-- Grid columns: Left Nav, Center Content, Right Panel -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="LeftNavColumn" Width="275" />
             <ColumnDefinition x:Name="CenterColumn" Width="*" />
@@ -16,22 +15,21 @@
 
 
         <!-- LEFT NAVIGATION PANEL -->
-        <!-- Added the missing ">" after Background="#2B2E3B" and added Padding for top spacing -->
         <Border Grid.Column="0"
-        Margin="10"
-        Background="#ffffff"
-        BorderBrush="#aaa"
-        BorderThickness="1"
-        CornerRadius="10"
-        Padding="10">
+                Margin="10"
+                Background="#ffffff"
+                BorderBrush="#aaa"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="10">
             <StackPanel>
 
                 <TextBlock Text="RentRide" 
                            HorizontalAlignment="Center"
-                       Foreground="#005c85"
-                       FontWeight="Bold"
-                       FontSize="30"
-                       Margin="20,20,20,20" />
+                           Foreground="#005c85"
+                           FontWeight="Bold"
+                           FontSize="30"
+                           Margin="20,20,20,20" />
 
                 <!-- Navigation Buttons -->
                 <Button Content="Dashboard"
@@ -39,12 +37,13 @@
                         Padding="20"
                         Margin="20,10"
                         Cursor="Hand"
-                        FontSize="15">
+                        FontSize="15"
+                        Click="DashboardButton_Click">
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="#007bff"
-                                    CornerRadius="6"
+                                    CornerRadius="20"
                                     BorderThickness="0"
                                     Padding="15,10">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -58,11 +57,12 @@
                         Padding="20"
                         Margin="20,10"
                         Cursor="Hand"
-                        FontSize="15">
+                        FontSize="15"
+                        Click="BookingsButton_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="#007bff"
-                                    CornerRadius="6"
+                                    CornerRadius="20"
                                     BorderThickness="0"
                                     Padding="10">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -75,11 +75,12 @@
                         Padding="20"
                         Margin="20,10"
                         Cursor="Hand"
-                        FontSize="15">
+                        FontSize="15"
+                        Click="CarListButton_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="#007bff"
-                                    CornerRadius="6"
+                                    CornerRadius="20"
                                     BorderThickness="0"
                                     Padding="10">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -97,7 +98,7 @@
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="#007bff"
-                                    CornerRadius="6"
+                                    CornerRadius="20"
                                     BorderThickness="0"
                                     Padding="10">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -110,7 +111,7 @@
                            Foreground="#005c85"
                            FontSize="16"
                            FontWeight="Bold"
-                           Margin="10,40,20,20"
+                           Margin="10,20,20,20"
                            />
 
                 <StackPanel Orientation="Horizontal" Margin="10,0,0,10">
@@ -140,7 +141,27 @@ at maximus turpis viverra in."
                            Foreground="Black"
                            TextWrapping="Wrap"
                            Margin="10,0,0,10"/>
+
+                <Button Content="LOGOUT"
+                        Foreground="White"
+                        Padding="20"
+                        Margin="20,20"
+                        Cursor="Hand"
+                        FontSize="15"
+                        Click="LogoutButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="red"
+                                    CornerRadius="20"
+                                    BorderThickness="0"
+                                    Padding="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
+            
         </Border>
 
         <!-- MAIN CENTER CONTENT -->
@@ -148,18 +169,24 @@ at maximus turpis viverra in."
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
                 <Frame.Content>
                     <Border Background="#2B2E3B"
-                    CornerRadius="10"
-                    Padding="20">
+                            CornerRadius="10"
+                            Padding="20">
                         <StackPanel>
                             <TextBlock Text="Welcome to RentRide"
-                               Foreground="White"
-                               FontWeight="Bold"
-                               FontSize="18"
-                               Margin="0,0,0,10"/>
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       FontSize="18"
+                                       Margin="0,0,0,10"/>
                             <TextBlock Text="Select a menu option to proceed."
-                               Foreground="White"
-                               TextWrapping="Wrap"
-                               Margin="0,0,0,20"/>
+                                       Foreground="White"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,0,20"/>
+                            <Image Source="NewFolder/logo3.png" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" 
+                                       Width="200" 
+                                       Height="150" 
+                                       Margin="0,20"/>
                         </StackPanel>
                     </Border>
                 </Frame.Content>

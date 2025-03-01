@@ -3,28 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\addcarpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:addcarpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\bookingspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:bookingspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\carlistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:carlistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\bookingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:bookingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\carlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:carlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\addcarpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:addcarpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\updatecarpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:updatecarpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\addcarpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:addcarpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\updatecarpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:updatecarpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\dashboardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:dashboardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|c:\\users\\hp\\documents\\github\\car-rental\\desktop\\rentride\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{90CC0EFF-ADFB-487B-8441-14C7E90F32D4}|RentRide.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,49 +66,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddCarPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\AddCarPage.xaml.cs",
-              "RelativeDocumentMoniker": "AddCarPage.xaml.cs",
-              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\AddCarPage.xaml.cs",
-              "RelativeToolTip": "AddCarPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T16:22:10.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\App.config",
-              "RelativeDocumentMoniker": "App.config",
-              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\App.config",
-              "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-02-24T04:50:53.853Z",
+              "DocumentIndex": 2,
+              "Title": "BookingsPage.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\BookingsPage.xaml",
+              "RelativeDocumentMoniker": "BookingsPage.xaml",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\BookingsPage.xaml",
+              "RelativeToolTip": "BookingsPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-01T11:46:42.339Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\App.xaml",
-              "RelativeToolTip": "App.xaml",
+              "Title": "CarListPage.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\CarListPage.xaml",
+              "RelativeDocumentMoniker": "CarListPage.xaml",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\CarListPage.xaml",
+              "RelativeToolTip": "CarListPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-24T05:37:34.343Z",
+              "WhenOpened": "2025-03-01T16:12:13.017Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "CarListPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\CarListPage.xaml.cs",
+              "RelativeDocumentMoniker": "CarListPage.xaml.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\CarListPage.xaml.cs",
+              "RelativeToolTip": "CarListPage.xaml.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAwwKYAAAB+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T16:12:51.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\Login.xaml",
+              "RelativeDocumentMoniker": "Login.xaml",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\Login.xaml",
+              "RelativeToolTip": "Login.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-01T18:34:14.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookingsPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\BookingsPage.xaml.cs",
+              "RelativeDocumentMoniker": "BookingsPage.xaml.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\BookingsPage.xaml.cs",
+              "RelativeToolTip": "BookingsPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T11:47:06.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateCarPage.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\UpdateCarPage.xaml",
+              "RelativeDocumentMoniker": "UpdateCarPage.xaml",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\UpdateCarPage.xaml",
+              "RelativeToolTip": "UpdateCarPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-01T17:37:36.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddCarPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\AddCarPage.xaml.cs",
+              "RelativeDocumentMoniker": "AddCarPage.xaml.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\AddCarPage.xaml.cs",
+              "RelativeToolTip": "AddCarPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T14:28:39.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-01T10:48:42.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AddCarPage.xaml",
               "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\AddCarPage.xaml",
               "RelativeDocumentMoniker": "AddCarPage.xaml",
@@ -88,28 +181,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-23T13:04:19.891Z",
+              "DocumentIndex": 9,
+              "Title": "UpdateCarPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\UpdateCarPage.xaml.cs",
+              "RelativeDocumentMoniker": "UpdateCarPage.xaml.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\UpdateCarPage.xaml.cs",
+              "RelativeToolTip": "UpdateCarPage.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAFYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T17:39:11.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T13:04:16.693Z",
+              "WhenOpened": "2025-03-01T10:49:09.308Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DashboardPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\DashboardPage.xaml.cs",
+              "RelativeDocumentMoniker": "DashboardPage.xaml.cs",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\DashboardPage.xaml.cs",
+              "RelativeToolTip": "DashboardPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T10:53:50.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DashboardPage.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\DashboardPage.xaml",
+              "RelativeDocumentMoniker": "DashboardPage.xaml",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\DashboardPage.xaml",
+              "RelativeToolTip": "DashboardPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-01T10:53:12.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\HP\\Documents\\GitHub\\Car-Rental\\desktop\\RentRide\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-02-24T04:50:53.853Z"
             }
           ]
         }

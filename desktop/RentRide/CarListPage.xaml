@@ -1,0 +1,23 @@
+﻿<Page x:Class="RentRide.CarListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Car List">
+
+    <Grid Background="#f3f9ff">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="10">
+            <TextBlock Text="List of Cars"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#005c85"
+                       HorizontalAlignment="Center"
+                       Margin="0,10"/>
+
+            <!-- Scrollable Car List -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="500">
+                <WrapPanel x:Name="CarListPanel" 
+                           HorizontalAlignment="Center"
+                           Margin="0"/>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Page>

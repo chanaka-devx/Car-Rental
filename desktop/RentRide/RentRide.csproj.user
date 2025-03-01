@@ -10,12 +10,42 @@
     <Compile Update="AddCarPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="BookingsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CarListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DashboardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateCarPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddCarPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="BookingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CarListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DashboardPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateCarPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

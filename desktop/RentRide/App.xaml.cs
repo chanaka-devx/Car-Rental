@@ -9,6 +9,8 @@ namespace RentRide
     /// </summary>
     public partial class App : Application
     {
+    
+
     }
 
 }

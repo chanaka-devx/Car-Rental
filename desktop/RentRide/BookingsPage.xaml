@@ -1,0 +1,23 @@
+﻿<Page x:Class="RentRide.BookingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="BookingsPage"
+      Background="#f3f9ff">
+
+    <Grid Margin="10">
+        
+        <TextBlock Text="All Bookings"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Foreground="#005c85"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Disabled"
+                      Margin="10,100,10,10">
+            <StackPanel x:Name="BookingsStackPanel" Orientation="Vertical">
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

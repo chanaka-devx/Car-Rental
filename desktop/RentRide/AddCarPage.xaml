@@ -4,98 +4,208 @@
       Title="Add Car Page">
 
     <Grid Background="#f3f9ff">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
-            <TextBlock Text="Add New Car"
-                       FontSize="30"
-                       FontWeight="Bold"
-                       Foreground="#005c85"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,20"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Border Width="600" Padding="20" Background="White"
+                    CornerRadius="10" BorderBrush="#dcdcdc" BorderThickness="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            <!-- Brand -->
-            <Grid Margin="0,10">
-                <TextBox x:Name="txtBrand"/>
-                <TextBlock Text="Brand"
-                           IsHitTestVisible="False"
-                           Foreground="Gray"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"
-                           Opacity="0.5"
-                           Visibility="{Binding Text, ElementName=txtBrand, Converter={StaticResource StringToVisibilityConverter}}"/>
-            </Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <!-- Header -->
+                    <TextBlock Text="Add Car Details"
+                               FontSize="25"
+                               FontWeight="Bold"
+                               Foreground="#005c85"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,20"/>
 
-            <!-- Model -->
-            <Grid Margin="0,10">
-                <TextBox x:Name="txtModel"/>
-                <TextBlock Text="Model"
-                           IsHitTestVisible="False"
-                           Foreground="Gray"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"
-                           Opacity="0.5"
-                           Visibility="{Binding Text, ElementName=txtModel, Converter={StaticResource StringToVisibilityConverter}}"/>
-            </Grid>
+                    <!-- Brand -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Brand" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtBrand" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
 
-            <!-- Vehicle Number -->
-            <Grid Margin="0,10">
-                <TextBox x:Name="txtVNumber"/>
-                <TextBlock Text="Vehicle Number"
-                           IsHitTestVisible="False"
-                           Foreground="Gray"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"
-                           Opacity="0.5"
-                           Visibility="{Binding Text, ElementName=txtVNumber, Converter={StaticResource StringToVisibilityConverter}}"/>
-            </Grid>
+                    <!-- Model -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Model" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtModel" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
 
-            <!-- Color -->
-            <Grid Margin="0,10">
-                <TextBox x:Name="txtColor"/>
-                <TextBlock Text="Color"
-                           IsHitTestVisible="False"
-                           Foreground="Gray"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"
-                           Opacity="0.5"
-                           Visibility="{Binding Text, ElementName=txtColor, Converter={StaticResource StringToVisibilityConverter}}"/>
-            </Grid>
+                    <!-- Vehicle Number -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Vehicle Number" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtVNumber" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
 
-            <!-- Location -->
-            <Grid Margin="0,10">
-                <TextBox x:Name="txtLocation"/>
-                <TextBlock Text="Location"
-                           IsHitTestVisible="False"
-                           Foreground="Gray"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"
-                           Opacity="0.5"
-                           Visibility="{Binding Text, ElementName=txtLocation, Converter={StaticResource StringToVisibilityConverter}}"/>
-            </Grid>
+                    <!-- Color -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Color" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtColor" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
 
-            <!-- Price -->
-            <Grid Margin="0,10">
-                <TextBox x:Name="txtPrice"/>
-                <TextBlock Text="Price"
-                           IsHitTestVisible="False"
-                           Foreground="Gray"
-                           Margin="5,0,0,0"
-                           VerticalAlignment="Center"
-                           Opacity="0.5"
-                           Visibility="{Binding Text, ElementName=txtPrice, Converter={StaticResource StringToVisibilityConverter}}"/>
-            </Grid>
+                    <!-- Location -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Location" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtLocation" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
 
-            <Button Content="Choose Image" 
-                    Click="ChooseImage_Click"
-                    Background="#007bff" 
-                    Foreground="White"
-                    Margin="0,10"/>
-            <Image x:Name="imgPreview" Height="150" Width="150" Margin="0,10"/>
+                    <!-- Price -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Price" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtPrice" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
 
-            <Button Content="Save Car" 
-                    Click="SaveCar_Click"
-                    Background="#28a745" 
-                    Foreground="White"
-                    Margin="0,10"/>
-        </StackPanel>
+
+                    <!-- Car Image -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Car Image" Foreground="Black" FontWeight="Bold"/>
+                        <Button x:Name="btnChooseFile" 
+                                    Content="Choose File" 
+                                    Width="300" 
+                                    Height="35" 
+                                    Background="#007bff" 
+                                    Foreground="White" 
+                                    FontWeight="Bold" 
+                                    FontSize="14" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    BorderBrush="#007bff" 
+                                    BorderThickness="1" 
+                                    Click="ChooseImage_Click">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="#4285F4"
+                                                CornerRadius="6"
+                                                BorderThickness="0"
+                                                Padding="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                        </Button>
+                        <TextBlock x:Name="txtImagePath" Foreground="Gray" FontSize="12" Margin="0,10"/>
+                        <Image x:Name="imgPreview" Height="100" Width="150" Margin="0,10" Visibility="Hidden"/>
+                    </StackPanel>
+
+                    <!-- Add Button -->
+                    <Button Content="Add Car"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Padding="20"
+                            Height="40"
+                            Margin="0,10,0,0"
+                            Cursor="Hand"
+                            FontSize="15"
+                            Click="SaveCar_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#4285F4"
+                                        CornerRadius="10"
+                                        BorderThickness="0"
+                                        Padding="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+            </Border>
+        </ScrollViewer>
     </Grid>
 </Page>

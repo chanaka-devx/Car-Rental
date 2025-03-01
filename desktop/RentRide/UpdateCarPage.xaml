@@ -1,0 +1,177 @@
+﻿<Page x:Class="RentRide.UpdateCarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Update Car Page">
+
+    <Grid Background="#f3f9ff">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Border Width="600" Padding="20" Background="White"
+                    CornerRadius="10" BorderBrush="#dcdcdc" BorderThickness="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <StackPanel VerticalAlignment="Center">
+                    <!-- Header -->
+                    <TextBlock Text="Update Car Details"
+                               FontSize="25"
+                               FontWeight="Bold"
+                               Foreground="#005c85"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,20"/>
+
+                    <!-- Brand -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Brand" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtBrand" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Model -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Model" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtModel" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Vehicle Number -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Vehicle Number" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtVNumber" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Color -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Color" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtColor" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Location -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Location" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtLocation" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Price -->
+                    <StackPanel Margin="0,10">
+                        <TextBlock Text="Price" Foreground="Black" FontWeight="Bold"/>
+                        <TextBox x:Name="txtPrice" 
+                                 Height="35" 
+                                 Margin="0,5" 
+                                 Padding="10,0,0,5"
+                                 FontSize="14" 
+                                 VerticalContentAlignment="Center">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border Background="White" 
+                                            BorderBrush="#cdcdcd" 
+                                            BorderThickness="1" 
+                                            CornerRadius="10">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Update Button -->
+                    <Button Content="Update Car" 
+                            Click="SaveUpdatedCar_Click"
+                            Background="#28a745" 
+                            Foreground="White"
+                            FontSize="16"
+                            Margin="0,10"
+                            Padding="10">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#4285F4"
+                                        CornerRadius="10"
+                                        BorderThickness="0"
+                                        Padding="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Page>
