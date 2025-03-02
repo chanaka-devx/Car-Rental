@@ -57,6 +57,8 @@ router.post('/login', async (req, res) => {
 
     const user = rows[0];
 
+    console.log(user)
+
     // Compare submitted password with hashed password
     const isMatch = await bcrypt.compare(password, user.Password); // Case-sensitive match
     if (!isMatch) {
@@ -65,7 +67,7 @@ router.post('/login', async (req, res) => {
 
     // Generate a JWT token
     const token = jwt.sign(
-      { id: user.id, email: user.Email, role: user.role },
+      { id: user.ID, email: user.Email, role: user.role },
       process.env.JWT_SECRET,
       //{ expiresIn: '1d' }
     );

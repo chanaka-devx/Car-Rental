@@ -3,21 +3,27 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="Car List">
 
-    <Grid Background="#f3f9ff">
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="10">
-            <TextBlock Text="List of Cars"
+    <Border Background="#f6f9fc" 
+            BorderBrush="#adb5bd" 
+            BorderThickness="1" 
+            CornerRadius="15">
+
+        <Grid>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0, 10,0,0">
+                <TextBlock Text="List of Cars"
                        FontSize="30"
                        FontWeight="Bold"
                        Foreground="#005c85"
                        HorizontalAlignment="Center"
                        Margin="0,10"/>
 
-            <!-- Scrollable Car List -->
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="500">
-                <WrapPanel x:Name="CarListPanel" 
+                <!-- Scrollable Car List -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="550">
+                    <WrapPanel x:Name="CarListPanel" 
                            HorizontalAlignment="Center"
                            Margin="0"/>
-            </ScrollViewer>
-        </StackPanel>
-    </Grid>
+                </ScrollViewer>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Page>

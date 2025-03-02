@@ -146,7 +146,12 @@ namespace RentRide
                 updateButton.Template = updateTemplate;
 
                 // Update Button Click Handler
-                updateButton.Click += (s, e) => UpdateCar(car.ID);
+                updateButton.Click += (s, e) =>
+                {
+                    // Pass the car ID to the UpdateCarPage constructor
+                    ((MainWindow)Application.Current.MainWindow).GetMainFrame().Navigate(new UpdateCarPage(car.ID));
+                };
+
 
 
                 // ===================== DELETE BUTTON =====================

@@ -2,14 +2,12 @@ C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-window
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\AddCarPage.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\BookingsPage.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\CarListPage.baml
-C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\DashboardPage.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\Login.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\UpdateCarPage.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\AddCarPage.g.cs
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\BookingsPage.g.cs
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\CarListPage.g.cs
-C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\DashboardPage.g.cs
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\Login.g.cs
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\UpdateCarPage.g.cs
@@ -29,6 +27,8 @@ C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-window
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\LiveCharts.dll
+C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\MaterialDesignColors.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\Microsoft.Win32.SystemEvents.dll
@@ -49,6 +49,8 @@ C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-window
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\DashboardPage.baml
+C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\DashboardPage.g.cs
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\App.baml
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\RentRide.g.resources
 C:\Users\HP\Documents\GitHub\Car-Rental\desktop\RentRide\obj\Debug\net8.0-windows\RentRide.GeneratedMSBuildEditorConfig.editorconfig

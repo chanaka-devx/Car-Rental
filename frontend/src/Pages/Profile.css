@@ -94,7 +94,8 @@ body {
   
   .profile-section h3 {
     color: #444;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
+    font-size: large;
   }
   
   .info-group {

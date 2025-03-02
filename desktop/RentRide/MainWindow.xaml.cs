@@ -46,7 +46,6 @@ namespace RentRide
         {
             if (string.IsNullOrEmpty(Properties.Settings.Default.Token))
             {
-                MessageBox.Show("You must log in first!", "Authentication Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 OpenLoginPage();
             }
         }

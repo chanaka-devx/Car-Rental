@@ -46,9 +46,9 @@ const Navbar = () => {
           <li>
             {token ? (
             <button
-              className={`menu-item ${location.pathname.startsWith('/profile') ? 'active' : ''}`}
-              onClick={() => navigate(`/profile/${userId}`)}
-              disabled={!userId} 
+              className={`menu-item ${location.pathname === '/profile' ? 'active' : ''}`}
+              onClick={() => navigate(`/profile`)}
+              
             >
               Profile
             </button>

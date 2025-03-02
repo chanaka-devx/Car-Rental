@@ -130,25 +130,38 @@
 
                     <!-- Price -->
                     <StackPanel Margin="0,10">
-                        <TextBlock Text="Price" Foreground="Black" FontWeight="Bold"/>
-                        <TextBox x:Name="txtPrice" 
-                                 Height="35" 
-                                 Margin="0,5" 
-                                 Padding="10,0,0,5"
-                                 FontSize="14" 
-                                 VerticalContentAlignment="Center">
-                            <TextBox.Template>
-                                <ControlTemplate TargetType="TextBox">
-                                    <Border Background="White" 
-                                            BorderBrush="#cdcdcd" 
-                                            BorderThickness="1" 
-                                            CornerRadius="10">
-                                        <ScrollViewer x:Name="PART_ContentHost" />
-                                    </Border>
-                                </ControlTemplate>
-                            </TextBox.Template>
-                        </TextBox>
-                    </StackPanel>
+    <TextBlock Text="Price" Foreground="Black" FontWeight="Bold"/>
+    <TextBox x:Name="txtPrice" 
+             Height="35" 
+             Margin="0,5" 
+             Padding="10,0,0,5"
+             FontSize="14" 
+             VerticalContentAlignment="Center">
+        <TextBox.Template>
+            <ControlTemplate TargetType="TextBox">
+                <Border Background="White" 
+                        BorderBrush="#cdcdcd" 
+                        BorderThickness="1" 
+                        CornerRadius="10">
+                    <Grid>
+                        <!-- Placeholder Text -->
+                        <TextBlock x:Name="PlaceholderText" 
+                                   Text="Enter Price" 
+                                   Foreground="Gray" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Left"
+                                   Margin="10,0,0,0" 
+                                   Visibility="Collapsed" />
+                        <ScrollViewer x:Name="PART_ContentHost" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </TextBox.Template>
+    </TextBox>
+
+</StackPanel>
+
+
 
                     <!-- Update Button -->
                     <Button Content="Update Car" 

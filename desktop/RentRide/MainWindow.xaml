@@ -20,7 +20,7 @@
                 Background="#ffffff"
                 BorderBrush="#aaa"
                 BorderThickness="1"
-                CornerRadius="10"
+                CornerRadius="15"
                 Padding="10">
             <StackPanel>
 

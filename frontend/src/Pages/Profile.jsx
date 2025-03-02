@@ -16,33 +16,40 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
 
   // Get user ID from localStorage
-  const userId = localStorage.getItem("userId");
 
   // Fetch user data from the database
   useEffect(() => {
-    if (!userId) {
-      console.error("User ID is not available.");
+    const token = localStorage.getItem('token'); // Assuming your JWT token is stored in localStorage
+
+    // Ensure the token is available before making the API call
+    if (!token) {
+      console.error("No token available.");
       setLoading(false);
       return;
     }
 
+    // Make the API call with the Authorization header containing the JWT token
     axios
-      .get(`http://localhost:5176/api/profile/${userId}`) // Include user ID in the API endpoint
+      .get('http://localhost:5176/api/profile', {
+        headers: {
+          Authorization: `${token}`,  // Send JWT in Authorization header
+        },
+      })
       .then((res) => {
         console.log("API Response:", res.data);
         if (res.data.success && res.data.user) {
-          setUser(res.data.user);
-          navigate(`/profile/${userId}`); // Ensure response structure matches
+          setUser(res.data.user); // Set user data in state
+          navigate(`/profile`); // Redirect to profile page with user ID
         } else {
           console.error("Failed to fetch user data:", res.data.message);
         }
-        setLoading(false); // Data is loaded
+        setLoading(false); // Set loading to false after data is fetched
       })
       .catch((err) => {
         console.error("Error fetching user data:", err);
         setLoading(false); // Stop loading even on error
       });
-  }, [userId]);
+  }, [])
 
   if (loading) {
     return <p>Loading...</p>; // Display loading state
@@ -83,7 +90,6 @@ const Profile = () => {
 
         {/* Main Content Section */}
         <main className="main-content">
-          <h2>Profile</h2>
 
           {/* User Information */}
           <section className="profile-section">

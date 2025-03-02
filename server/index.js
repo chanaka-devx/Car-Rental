@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import usersRoute from "./routes/usersRoute.js"; 
 import bodyParser from 'body-parser';
 import bookRouter from './routes/bookRoutes.js';
+import jwt from 'jsonwebtoken';
 import { v2 as cloudinary } from 'cloudinary';
 
 
@@ -62,31 +63,31 @@ app.use('/books', bookRouter);
 //------------------------------------------------------------------------------------------------------------------------------
 
 
-//search results
+// Search results API
+// Search results API
 app.post('/search', async (req, res) => {
-  console.log('Request received:', req.body);
-  const location = req.body.location;
+  const { location } = req.body;
 
   try {
     const db = await connectToDatabase(); // Await database connection
-    const sql = 'SELECT * FROM cars WHERE `Location` LIKE ?';
+    
+    // Use parameterized queries to avoid SQL injection and for cleaner code
+    const sql = `SELECT * FROM cars WHERE Location LIKE ?`;
     const queryParams = [`%${location}%`]; // Use LIKE for partial matching
+    
+    // Use await for the query and get results as a Promise
+    const [results] = await db.query(sql, queryParams);
 
-    db.query(sql, queryParams, (err, results) => {
-      if (err) {
-        console.error('Error querying the database:', err);
-        res.status(500).json({ success: false, message: 'Database query error' });
-      } else {
-        console.log('Query results:', results);
-        res.status(200).json(results); // Send the results back to the client
-      }
-      db.end(); // Close the database connection
-    });
+    console.log('Query results:', results);
+    res.status(200).json(results); // Send the results back to the client
+
   } catch (err) {
     console.error('Database connection error:', err);
     res.status(500).json({ success: false, message: 'Database connection error' });
   }
 });
+
+
 
 
 //------------------------------------------------------------------------------------------------------------------------------
@@ -348,9 +349,18 @@ app.get('/api/cars', async (req, res) => {
 
 
 // Get user profile by ID
-app.get('/api/profile/:id', async (req, res) => {
-  const userId = req.params.id;
+app.get('/api/profile', async (req, res) => {
+  const token = req.headers['authorization'];
+
+  if (!token) {
+    return res.status(403).json({ success: false, message: 'No token provided' });
+  }
+
   try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Extract user ID from decoded token
+    const userId = decoded.id;
     const db = await connectToDatabase();
     const sql = "SELECT * FROM users WHERE ID = ?";
     const [rows] = await db.query(sql, [userId]);
@@ -360,9 +370,10 @@ app.get('/api/profile/:id', async (req, res) => {
     } else {
       res.status(404).json({ success: false, message: "User not found" });
     }
+
   } catch (err) {
     console.error('Error fetching user details:', err);
-    res.status(500).json({ success: false, message: 'Database error' });
+    res.status(500).json({ success: false, message: 'Database error or invalid token' });
   }
 });
 

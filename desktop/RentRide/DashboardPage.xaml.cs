@@ -1,28 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RentRide
 {
-    /// <summary>
-    /// Interaction logic for DashboardPage.xaml
-    /// </summary>
     public partial class DashboardPage : Page
     {
         public DashboardPage()
         {
             InitializeComponent();
+            LoadCharts();
+        }
+
+        private void LoadCharts()
+        {
+            // Data for Bookings chart
+            BookingsChart.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Bookings",
+                    Values = new ChartValues<int> { 12, 15, 18, 20, 22, 25 },
+                    Fill = Brushes.Transparent,
+                    Stroke = Brushes.DodgerBlue,
+                    PointGeometry = DefaultGeometries.Circle,
+                    PointGeometrySize = 15,
+                    LineSmoothness = 0.5 // Makes the line smoother
+                }
+            };
+
+            BookingsChart.AxisX.Add(new Axis
+            {
+                Title = "Months",
+                Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun" },
+            });
+
+            
+
+            // Data for Active Users chart
+            ActiveUsersChart.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Active Users",
+                    Values = new ChartValues<int> { 300, 450, 600, 500, 700, 900, 1100 },
+                    Fill = Brushes.Tomato,
+                    DataLabels = true
+                }
+            };
+
+            ActiveUsersChart.AxisX.Add(new Axis
+            {
+                Title = "Days",
+                Labels = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" },
+            });
+
+            
         }
     }
 }
