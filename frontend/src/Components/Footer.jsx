@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -14,24 +15,24 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/terms&conditions">Terms and Conditions</a></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/terms&conditions">Terms and Conditions</Link></li>
           </ul>
         </div>
         <div className="footer-section">
           <h3>Follow Us</h3>
           <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook/></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter/></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
+            <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook/></Link>
+            <Link to="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter/></Link>
+            <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram/></Link>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
       <p>
-            copyright © 2025 <a href="https://RentRide.lk" >RentRide  </a> 
-            | developing by <a href="https://www.facebook.com/chanaka.malawige/" >  Chanaka Malawige</a>
+            copyright © 2025 <Link to="https://RentRide.lk" >RentRide  </Link> 
+            | developing by <Link to="https://www.facebook.com/chanaka.malawige/" target="_blank" >  Chanaka Malawige</Link>
             </p>
       </div>
     </footer>

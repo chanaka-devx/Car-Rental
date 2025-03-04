@@ -82,6 +82,54 @@
     background: rgba(31, 41, 55, 1);
 }
 
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2rem;
+  }
+  
+  .car-item {
+    list-style: none;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .car-item h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .car-item p {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  
+  .car-item img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .book-now-btn {
+    margin-top: 10px;
+    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .book-now-btn:hover {
+    background-color: #2563eb;
+  }
+
 @media (max-width: 768px) {
     .dialog-box{
         margin: 6rem 1rem 1rem 1rem;

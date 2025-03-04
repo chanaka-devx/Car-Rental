@@ -33,7 +33,7 @@ const CreateCar = () => {
 
             if (result.success) {
                 alert("Car uploaded successfully!");
-                navigate("/cars");
+                navigate("/car");
             } else {
                 alert("Error: " + result.message);
             }

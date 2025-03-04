@@ -8,7 +8,7 @@
   
   .login-box {
     background-color: #ffffff; 
-    border-radius: 0.5rem; 
+    border-radius: 1rem; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     display: flex;
     overflow: hidden; 
@@ -47,6 +47,15 @@
   .login-right {
     width: 50%; 
     padding: 2.5rem; 
+  }
+
+  .signup-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
   }
   
   /* Mobile Title */

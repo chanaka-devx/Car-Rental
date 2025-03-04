@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Login"
         Width="450"
-        Height="400"
+        Height="550"
         Background="#F5F5F5"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -11,12 +11,18 @@
     <Grid>
         <Border Background="White" 
                 CornerRadius="10"
-                Padding="40"
-                Width="350"
+                Padding="40 10 40 40 "
+                Width="380"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center">
 
             <StackPanel VerticalAlignment="Center">
+
+                <Image Source="logo3.png" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Height="80"
+                       Margin="0,20,0,0"/>
 
                 <!-- Title -->
                 <TextBlock Text="Welcome Back!"
@@ -102,6 +108,34 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+
+                <TextBlock Text="Don't have an account?" 
+                           Foreground="Black" 
+                           FontSize="12" 
+                           HorizontalAlignment="Center"
+                           Margin="0,10,0,5"/>
+                <Button Content="Sign Up"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Padding="20"
+                        Height="40"
+                        Margin="0,5,0,0"
+                        Cursor="Hand"
+                        FontSize="15"
+                        Background="#4285F4"
+                        Click="SignUpButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="#4285F4"
+                                    CornerRadius="20"
+                                    BorderThickness="0"
+                                    Padding="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
                 <TextBlock x:Name="ErrorMessage"
                        Foreground="Red"
                        FontSize="11"

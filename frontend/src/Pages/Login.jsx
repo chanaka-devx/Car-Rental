@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import LoginImage from "../Images/Login.jpg";
 import {jwtDecode} from "jwt-decode";
 
@@ -30,22 +30,21 @@ const Login = () => {
     setLoading(true);
 
     try {
-      console.log("Submitting login with values:", values); // Debugging log
+      console.log("Submitting login with values:", values); 
       const response = await axios.post(
         "http://localhost:5176/auth/login",
         values
       );
       console.log("Response from server:", response.data);
 
-      // 2) Get token from response
+      // Get token from response
       const { token } = response.data;
       const { role } = response.data;
 
-      // 3) Store token in localStorage
+      // Store token in localStorage
       localStorage.setItem('token', token);
 
-      // 4) Decode token to check role
-
+      // Decode token to check role
       console.log(role)
 
       if (role === 'admin') {
@@ -86,13 +85,11 @@ const Login = () => {
             <h2 className="mobile-title">Welcome Back!</h2>
             <form onSubmit={handleSubmit}>
 
-              {/* Display Success Message */}
               {success && (
                 <div className="success-message">
                   {success}
                 </div>
               )}
-              {/* Display Error Message */}
               {error && (
                 <div className="error-message">
                   {error}
@@ -142,6 +139,10 @@ const Login = () => {
               <button type="submit" className="submit-button">
                 LOGIN
               </button>
+
+              <div className="signup-section">
+                <p>Don't have an account? <Link to="/register" className="signup-link">Sign Up</Link></p>
+              </div>
             </form>
           </div>
         </div>

@@ -28,9 +28,10 @@ router.post('/register', async (req, res) => {
 
     // Insert new user
     await db.query(
-      "INSERT INTO users (Name, Mobile, Email, Password) VALUES (?, ?, ?, ?)",
-      [name, mobile, email, hashedPassword]
+      "INSERT INTO users (Name, Mobile, Email, Password, Role) VALUES (?, ?, ?, ?, ?)",
+      [name, mobile, email, hashedPassword, 'user']
     );
+    
 
     return res.status(201).json({ success: true, message: "User created successfully." });
   } catch (err) {

@@ -6,6 +6,7 @@ using System.Windows;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using CloudinaryDotNet.Core;
+using System.Diagnostics;
 
 namespace RentRide
 {
@@ -16,6 +17,22 @@ namespace RentRide
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Specify the URL you want to navigate to
+            string url = "http://localhost:3000/register"; 
+
+            try
+            {
+                // Open the URL in the default web browser
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening the URL: {ex.Message}");
+            }
         }
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -74,6 +91,7 @@ namespace RentRide
             dashboard.Show();
             this.Close();
         }
+
     }
 
     public class LoginResponse

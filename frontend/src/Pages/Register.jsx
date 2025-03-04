@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -15,6 +16,7 @@ const Register = () => {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChanges = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -35,8 +37,10 @@ const Register = () => {
 
       if (response.data.success) {
         setSuccess("User registered successfully!");
-        // Optionally, redirect to login page after a delay
-        // setTimeout(() => { window.location.href = "/login"; }, 2000);
+        // Redirect to home page after successful registration
+        setTimeout(() => {
+          navigate("/login"); // Redirect to the home page
+        }, 2000);
       } else {
         setError(response.data.message || "Signup failed. Please try again.");
       }
@@ -162,14 +166,19 @@ const Register = () => {
                 />
                 <label htmlFor="terms" className="terms-label">
                   I agree to the{" "}
-                  <a href="#terms" className="terms-link">
+                  <Link to="/terms&conditions" className="terms-link">
                     Terms and Conditions
-                  </a>
+                  </Link>
                 </label>
               </div>
               <button type="submit" className="submit-button">
                 SIGN UP
               </button>
+
+              <div className="login-section">
+                <p>Already have an account? <Link to="/login" className="login-link">Login</Link></p>
+              </div>
+
             </form>
           </div>
         </div>

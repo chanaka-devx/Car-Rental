@@ -11,11 +11,13 @@ namespace RentRide
         {
             InitializeComponent();
             CheckAuthentication();
+
+            MainFrame.Navigate(new DashboardPage());
         }
 
         private void AddCarButton_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate to AddCarPage.xaml when the Add Car button is clicked
+            // Navigate to AddCarPage
             MainFrame.NavigationService.Navigate(new AddCarPage());
         }
 

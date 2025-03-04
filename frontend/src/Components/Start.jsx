@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Start.css'; 
 
 const Start = () => {
   const [location, setLocation] = useState('');
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log('Searching for location:', location);
@@ -40,6 +42,10 @@ const Start = () => {
         setLoading(false); // Stop loading even on error
       });
   };
+
+  const handleBooking = (carId) => {
+    navigate(`/booking/${carId}`); // Navigate to the booking page with carId
+  };
   
   return (
       <div className="dialog-container">
@@ -65,20 +71,30 @@ const Start = () => {
           {loading && <p>Loading...</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>}
 
-          <ul>
+          <ul className="car-list">
             {results.length > 0 ? (
               results.map((car) => (
-                <li key={car.ID}>
+                <li key={car.ID} className="car-item">
                   <h3>{car.Brand} {car.Model}</h3>
                   <p>Location: {car.Location}</p>
                   <p>Price: Rs.{car.Price}.00 / Day</p>
-                  <img src={car.Image} alt={`${car.Brand} ${car.Model}`} style={{ width: '200px' }} />
+                  <img
+                    src={car.Image}
+                    alt={`${car.Brand} ${car.Model}`}
+                  />
+                  <button
+                    onClick={() => handleBooking(car.ID)} // Redirect to booking page with carId
+                    className="book-now-btn"
+                  >
+                    Book Now
+                  </button>
                 </li>
               ))
             ) : (
               <p>No cars found for this location.</p>
             )}
           </ul>
+
         </div>
       </div>
   );

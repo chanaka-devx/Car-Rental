@@ -31,17 +31,17 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo">
-          <a href='/'><img src={RentRide} alt="Logo" className="logo-image" /></a>
+          <Link to='/'><img src={RentRide} alt="Logo" className="logo-image" /></Link>
         </div>
 
         <ul className="menu">
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className={`menu-item ${location.pathname === '/' ? 'active' : ''}`}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
             {token ? (
@@ -63,20 +63,20 @@ const Navbar = () => {
             )}
           </li>
           <li>
-            <a
-              href="#blog"
+            <Link
+              to="#blog"
               className={`menu-item ${location.hash === '#blog' ? 'active' : ''}`}
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/faq"
+            <Link
+              to="/faq"
               className={`menu-item ${location.pathname === '/faq' ? 'active' : ''}`}
             >
               FAQ
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -119,12 +119,12 @@ const Navbar = () => {
       >
         <ul className="mobile-menu-list">
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className={`mobile-menu-item ${location.pathname === '/' ? 'active' : ''}`}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
               <button
@@ -135,20 +135,20 @@ const Navbar = () => {
               </button>
           </li>
           <li>
-          <a
-              href="#blog"
+          <Link
+              to="#blog"
               className={`mobile-menu-item ${location.hash === '#blog' ? 'active' : ''}`}
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/faq"
+            <Link
+              to="/faq"
               className={`mobile-menu-item ${location.pathname === '/faq' ? 'active' : ''}`}
             >
               FAQ
-            </a>
+            </Link>
           </li>
             <div>
             {token ? (
