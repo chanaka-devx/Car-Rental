@@ -44,7 +44,7 @@ namespace RentRide
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading car: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                
             }
         }
 

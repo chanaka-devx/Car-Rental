@@ -113,7 +113,7 @@ namespace RentRide
             acceptTemplate.VisualTree = acceptBorder;
             acceptButton.Template = acceptTemplate;
 
-            acceptButton.Click += (sender, e) => HandleAccept(booking.id);
+            acceptButton.Click += (sender, e) => HandleDecline(booking.id);
 
 
             // ===================== DECLINE BUTTON =====================
@@ -182,18 +182,28 @@ namespace RentRide
             {
                 try
                 {
-                    // Send DELETE request to remove booking from the database (you can modify this to your Accept logic)
+                    // Send DELETE request to remove booking from the database (modify this if needed for Accept logic)
                     HttpResponseMessage response = await client.DeleteAsync($"http://localhost:5176/bookings/{bookingId}");
                     response.EnsureSuccessStatusCode();
 
                     // Remove the card from the UI
-                    var cardToDelete = BookingsStackPanel.Children.OfType<Border>().FirstOrDefault(card => ((Booking)card.Tag).id == bookingId);
+                    var cardToDelete = BookingsStackPanel.Children.OfType<Border>()
+                        .FirstOrDefault(card =>
+                        {
+                            var booking = card.Tag as Booking;
+                            return booking != null && booking.id == bookingId;
+                        });
+
+                    // Check if the card was found and safely remove it
                     if (cardToDelete != null)
                     {
                         BookingsStackPanel.Children.Remove(cardToDelete);
+                        MessageBox.Show($"Booking ID {bookingId} accepted successfully.");
                     }
-
-                    MessageBox.Show($"Booking ID {bookingId} accepted successfully.");
+                    else
+                    {
+                        MessageBox.Show("Booking card not found or has no associated data.");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -201,6 +211,7 @@ namespace RentRide
                 }
             }
         }
+
 
         private async void HandleDecline(int bookingId)
         {

@@ -64,8 +64,8 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="#blog"
-              className={`menu-item ${location.hash === '#blog' ? 'active' : ''}`}
+              to="/blog"
+              className={`menu-item ${location.hash === '/blog' ? 'active' : ''}`}
             >
               Blog
             </Link>
@@ -136,8 +136,8 @@ const Navbar = () => {
           </li>
           <li>
           <Link
-              to="#blog"
-              className={`mobile-menu-item ${location.hash === '#blog' ? 'active' : ''}`}
+              to="/blog"
+              className={`mobile-menu-item ${location.hash === '/blog' ? 'active' : ''}`}
             >
               Blog
             </Link>

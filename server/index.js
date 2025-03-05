@@ -113,7 +113,7 @@ app.get('/', async (req, res) => {
 //-----------------for the booking page----------------------------------
 
 // Get car details by ID
-app.get('/cars/:id', async (req, res) => {
+app.get('/car/:id', async (req, res) => {
   const carId = req.params.id;
   try {
     const db = await connectToDatabase();
@@ -130,6 +130,7 @@ app.get('/cars/:id', async (req, res) => {
     res.status(500).json({ success: false, message: 'Database error' });
   }
 });
+
 
 
 //----------------------------------------------------------------------------

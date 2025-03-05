@@ -25,7 +25,7 @@ const Booking = () => {
     // Fetch car details from the backend using carId
     const fetchCar = async () => {
       try {
-        const response = await axios.get(`http://localhost:5176/cars/${carId}`);
+        const response = await axios.get(`http://localhost:5176/car/${carId}`);
         console.log("Car details:", response.data);
         setCar(response.data);
       } catch (err) {

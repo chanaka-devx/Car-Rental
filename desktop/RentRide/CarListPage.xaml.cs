@@ -146,10 +146,19 @@ namespace RentRide
                 updateButton.Template = updateTemplate;
 
                 // Update Button Click Handler
+                // Update Button Click Handler
                 updateButton.Click += (s, e) =>
                 {
-                    // Pass the car ID to the UpdateCarPage constructor
-                    ((MainWindow)Application.Current.MainWindow).GetMainFrame().Navigate(new UpdateCarPage(car.ID));
+                    // Ensure that Application.Current.MainWindow is of type MainWindow before casting
+                    if (Application.Current.MainWindow is MainWindow mainWindow)
+                    {
+                        mainWindow.GetMainFrame().Navigate(new UpdateCarPage(car.ID));
+                    }
+                    else
+                    {
+                        // Handle the case where MainWindow is not the expected type (e.g., during design-time)
+                        MessageBox.Show("MainWindow is not accessible.");
+                    }
                 };
 
 

@@ -33,13 +33,13 @@ function Car() {
         "Are you sure you want to delete this car?"
       );
       if (!confirmDelete) {
-        return; // Exit if user cancels
+        return; 
       }
 
       // Proceed with deletion
       const cleanId = id.toString().trim();
       await axios.delete(`http://localhost:5176/car/${cleanId}`);
-      setCar(car.filter((c) => c.ID !== id)); // Remove deleted item from state
+      setCar(car.filter((c) => c.ID !== id)); 
       alert("Car deleted successfully!");
     } catch (err) {
       console.error(err);
@@ -95,7 +95,7 @@ function Car() {
                         style={{ marginBottom: "5px" }}
                       />
                       <Skeleton height={40} width="100%" />{" "}
-                      {/* Button Skeleton */}
+                      
                     </div>
                   )
                 )

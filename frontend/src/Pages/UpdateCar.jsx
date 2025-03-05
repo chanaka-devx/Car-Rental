@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
@@ -12,8 +12,31 @@ const UpdateCar = () => {
   const [color, setColor] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
-  const { id } = useParams();
+  const [car, setCar] = useState({});
+  const { ID, id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("Fetching car details for ID:", id);
+    axios
+      .get(`http://localhost:5176/car/${id}`)
+      .then((res) => {
+        console.log("Fetched Car Data:", res.data); // Log API response
+        if (res.data) {
+          setCar({
+            brand: res.data.Brand,
+            model: res.data.Model,
+            vnumber: res.data.Number,
+            color: res.data.Color,
+            location: res.data.Location,
+            price: res.data.Price,
+          });
+        }
+      })
+      .catch((err) => console.error("Error fetching car data:", err));
+  }, [id]);
+  
+  console.log("Car ID received in UpdateCar:", id);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -49,9 +72,11 @@ const UpdateCar = () => {
               <input
                 type="text"
                 id="brand"
-                placeholder="Enter Brand"
+                name="brand"
+                placeholder={car.brand}
                 onChange={(e) => setBrand(e.target.value)}
                 value={brand}
+                required
               />
             </div>
 
@@ -60,9 +85,10 @@ const UpdateCar = () => {
               <input
                 type="text"
                 id="model"
-                placeholder="Enter Model"
+                placeholder={car.model}
                 onChange={(e) => setModel(e.target.value)}
                 value={model}
+                required
               />
             </div>
 
@@ -71,9 +97,10 @@ const UpdateCar = () => {
               <input
                 type="text"
                 id="vnumber"
-                placeholder="Enter Vehicle Number"
+                placeholder={car.vnumber}
                 onChange={(e) => setVnumber(e.target.value)}
                 value={vnumber}
+                required
               />
             </div>
 
@@ -82,9 +109,10 @@ const UpdateCar = () => {
               <input
                 type="text"
                 id="color"
-                placeholder="Enter Color"
+                placeholder={car.color}
                 onChange={(e) => setColor(e.target.value)}
                 value={color}
+                required
               />
             </div>
 
@@ -93,9 +121,9 @@ const UpdateCar = () => {
               <input
                 type="location"
                 id="location"
-                name="location"
-                placeholder="Enter Location"
+                placeholder={car.location}
                 onChange={(e) => setLocation(e.target.value)}
+                value={location}
                 required
               />
             </div>
@@ -105,9 +133,9 @@ const UpdateCar = () => {
               <input
                 type="number"
                 id="price"
-                name="price"
-                placeholder="Enter Price"
+                placeholder={car.price}
                 onChange={(e) => setPrice(e.target.value)}
+                value={price}
                 required
               />
             </div>
